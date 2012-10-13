@@ -1,11 +1,246 @@
 [
  {
+<<<<<<< HEAD
+=======
+  "created_time": "1350083882",
+  "id": "flickr_8082175527",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.831166,
+   "longitude": -122.2925
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8473/8082175527_a2899ceeb7_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8473/8082175527_a2899ceeb7_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8473/8082175527_a2899ceeb7_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1350148125",
+  "id": "flickr_8083253053",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.831005,
+   "longitude": -122.29238
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8466/8083253053_d1501976ab_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8466/8083253053_d1501976ab_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8466/8083253053_d1501976ab_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1350078818",
+  "id": "flickr_8082168010",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.8305,
+   "longitude": -122.292167
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8472/8082168010_a0498aa22a_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8472/8082168010_a0498aa22a_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8472/8082168010_a0498aa22a_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1350082629",
+  "id": "flickr_8082168282",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.830666,
+   "longitude": -122.292
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8185/8082168282_ab1c896357_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8185/8082168282_ab1c896357_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8185/8082168282_ab1c896357_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1350082921",
+  "id": "flickr_8082168552",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.830666,
+   "longitude": -122.291834
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8046/8082168552_5a5de68c73_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8046/8082168552_5a5de68c73_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8046/8082168552_5a5de68c73_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1350082989",
+  "id": "flickr_8082168860",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.830666,
+   "longitude": -122.291834
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8466/8082168860_d64ccaa8c9_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8466/8082168860_d64ccaa8c9_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8466/8082168860_d64ccaa8c9_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1350083052",
+  "id": "flickr_8082175217",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.830833,
+   "longitude": -122.291667
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8185/8082175217_ff2c4d1a57_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8185/8082175217_ff2c4d1a57_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8185/8082175217_ff2c4d1a57_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1350142948",
+  "id": "flickr_8082997576",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.904099,
+   "longitude": -122.291658
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8474/8082997576_6d5bbd1a86_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8474/8082997576_6d5bbd1a86_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8474/8082997576_6d5bbd1a86_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+>>>>>>> graph corrected
   "created_time": "1350077285",
   "id": "flickr_8082173145",
   "likes": {
    "count": 0
   },
   "location": {
+<<<<<<< HEAD
+   "latitude": 37.862333,
+   "longitude": -122.2905
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8189/8082173145_7181e2a6f5_z.jpg",
+=======
    "latitude": 37.862333,
    "longitude": -122.2905
   },
@@ -22,6 +257,34 @@
    },
    "standard_resolution": {
     "url": "http://farm9.static.flickr.com/8189/8082173145_7181e2a6f5_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1350078010",
+  "id": "flickr_8082167726",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.8515,
+   "longitude": -122.29
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8336/8082167726_74f61c4cb2_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8336/8082167726_74f61c4cb2_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8336/8082167726_74f61c4cb2_z.jpg",
     "width": 612,
     "height": 612
    }
@@ -84,6 +347,174 @@
   }
  },
  {
+  "created_time": "1350077750",
+  "id": "flickr_8082167450",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.862166,
+   "longitude": -122.29
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8470/8082167450_e8227ff743_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8470/8082167450_e8227ff743_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8470/8082167450_e8227ff743_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1350078010",
+  "id": "flickr_8082167726",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.8515,
+   "longitude": -122.29
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8336/8082167726_74f61c4cb2_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8336/8082167726_74f61c4cb2_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8336/8082167726_74f61c4cb2_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1350077750",
+  "id": "flickr_8082167450",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.862166,
+   "longitude": -122.29
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8470/8082167450_e8227ff743_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8470/8082167450_e8227ff743_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8470/8082167450_e8227ff743_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1350075001",
+  "id": "flickr_8082166402",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.8915,
+   "longitude": -122.279334
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8189/8082166402_d2e2262b8c_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8189/8082166402_d2e2262b8c_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8189/8082166402_d2e2262b8c_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1350076156",
+  "id": "flickr_8082166780",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.891166,
+   "longitude": -122.279334
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8474/8082166780_78064a64ae_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8474/8082166780_78064a64ae_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8474/8082166780_78064a64ae_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1350110782",
+  "id": "flickr_8081941734",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.826831,
+   "longitude": -122.271331
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8045/8081941734_0e3ee342e8_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8045/8081941734_0e3ee342e8_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8045/8081941734_0e3ee342e8_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
   "created_time": "1348532168",
   "id": "flickr_8082125330",
   "likes": {
@@ -134,34 +565,6 @@
    },
    "standard_resolution": {
     "url": "http://farm9.static.flickr.com/8468/8082130911_df7d7bcbec_z.jpg",
-    "width": 612,
-    "height": 612
-   }
-  }
- },
- {
-  "created_time": "1348532168",
-  "id": "flickr_8082125330",
-  "likes": {
-   "count": 0
-  },
-  "location": {
-   "latitude": 37.869333,
-   "longitude": -122.2665
-  },
-  "images": {
-   "low_resolution": {
-    "url": "http://farm9.static.flickr.com/8328/8082125330_50e97142ff_z.jpg",
-    "width": 306,
-    "height": 306
-   },
-   "thumbnail": {
-    "url": "http://farm9.static.flickr.com/8328/8082125330_50e97142ff_z.jpg",
-    "width": 150,
-    "height": 150
-   },
-   "standard_resolution": {
-    "url": "http://farm9.static.flickr.com/8328/8082125330_50e97142ff_z.jpg",
     "width": 612,
     "height": 612
    }
@@ -252,6 +655,34 @@
   }
  },
  {
+  "created_time": "1348533367",
+  "id": "flickr_8082131483",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.872833,
+   "longitude": -122.2595
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
   "created_time": "1350099777",
   "id": "flickr_8083399008",
   "likes": {
@@ -263,17 +694,73 @@
   },
   "images": {
    "low_resolution": {
-    "url": "http://farm9.static.flickr.com/8332/8083399008_9c831317ee_z.jpg",
+    "url": "http://farm9.static.flickr.com/8332/8083399008_6794317b57_z.jpg",
     "width": 306,
     "height": 306
    },
    "thumbnail": {
-    "url": "http://farm9.static.flickr.com/8332/8083399008_9c831317ee_z.jpg",
+    "url": "http://farm9.static.flickr.com/8332/8083399008_6794317b57_z.jpg",
     "width": 150,
     "height": 150
    },
    "standard_resolution": {
-    "url": "http://farm9.static.flickr.com/8332/8083399008_9c831317ee_z.jpg",
+    "url": "http://farm9.static.flickr.com/8332/8083399008_6794317b57_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1350099154",
+  "id": "flickr_8083403359",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.8695,
+   "longitude": -122.2595
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8327/8083403359_64b804f0e0_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8327/8083403359_64b804f0e0_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8327/8083403359_64b804f0e0_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1350099777",
+  "id": "flickr_8083399008",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.869667,
+   "longitude": -122.2595
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8332/8083399008_6794317b57_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8332/8083399008_6794317b57_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8332/8083399008_6794317b57_z.jpg",
     "width": 612,
     "height": 612
    }
@@ -320,16 +807,572 @@
   "images": {
    "low_resolution": {
     "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+>>>>>>> graph corrected
     "width": 306,
     "height": 306
    },
    "thumbnail": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8189/8082173145_7181e2a6f5_z.jpg",
+=======
     "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+>>>>>>> graph corrected
     "width": 150,
     "height": 150
    },
    "standard_resolution": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8189/8082173145_7181e2a6f5_z.jpg",
+=======
     "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+>>>>>>> graph corrected
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+<<<<<<< HEAD
+  "created_time": "1350077750",
+  "id": "flickr_8082167450",
+=======
+  "created_time": "1350099154",
+  "id": "flickr_8083403359",
+>>>>>>> graph corrected
+  "likes": {
+   "count": 0
+  },
+  "location": {
+<<<<<<< HEAD
+   "latitude": 37.862166,
+   "longitude": -122.29
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8470/8082167450_e8227ff743_z.jpg",
+=======
+   "latitude": 37.8695,
+   "longitude": -122.2595
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8327/8083403359_64b804f0e0_z.jpg",
+>>>>>>> graph corrected
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8470/8082167450_e8227ff743_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8327/8083403359_64b804f0e0_z.jpg",
+>>>>>>> graph corrected
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8470/8082167450_e8227ff743_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8327/8083403359_64b804f0e0_z.jpg",
+>>>>>>> graph corrected
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+<<<<<<< HEAD
+  "created_time": "1350078010",
+  "id": "flickr_8082167726",
+=======
+  "created_time": "1348533367",
+  "id": "flickr_8082131483",
+>>>>>>> graph corrected
+  "likes": {
+   "count": 0
+  },
+  "location": {
+<<<<<<< HEAD
+   "latitude": 37.8515,
+   "longitude": -122.29
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8336/8082167726_74f61c4cb2_z.jpg",
+=======
+   "latitude": 37.872833,
+   "longitude": -122.2595
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+>>>>>>> graph corrected
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8336/8082167726_74f61c4cb2_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+>>>>>>> graph corrected
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8336/8082167726_74f61c4cb2_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+>>>>>>> graph corrected
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+<<<<<<< HEAD
+  "created_time": "1348532168",
+  "id": "flickr_8082125330",
+=======
+  "created_time": "1350099777",
+  "id": "flickr_8083399008",
+>>>>>>> graph corrected
+  "likes": {
+   "count": 0
+  },
+  "location": {
+<<<<<<< HEAD
+   "latitude": 37.869333,
+   "longitude": -122.2665
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8328/8082125330_50e97142ff_z.jpg",
+=======
+   "latitude": 37.869667,
+   "longitude": -122.2595
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8332/8083399008_6794317b57_z.jpg",
+>>>>>>> graph corrected
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8328/8082125330_50e97142ff_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8332/8083399008_6794317b57_z.jpg",
+>>>>>>> graph corrected
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8328/8082125330_50e97142ff_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8332/8083399008_6794317b57_z.jpg",
+>>>>>>> graph corrected
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+<<<<<<< HEAD
+  "created_time": "1348532137",
+  "id": "flickr_8082130911",
+=======
+  "created_time": "1348533367",
+  "id": "flickr_8082131483",
+>>>>>>> graph corrected
+  "likes": {
+   "count": 0
+  },
+  "location": {
+<<<<<<< HEAD
+   "latitude": 37.869333,
+   "longitude": -122.2665
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8468/8082130911_df7d7bcbec_z.jpg",
+=======
+   "latitude": 37.872833,
+   "longitude": -122.2595
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+>>>>>>> graph corrected
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8468/8082130911_df7d7bcbec_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+>>>>>>> graph corrected
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8468/8082130911_df7d7bcbec_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+>>>>>>> graph corrected
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+<<<<<<< HEAD
+  "created_time": "1348532168",
+  "id": "flickr_8082125330",
+=======
+  "created_time": "1350099154",
+  "id": "flickr_8083403359",
+>>>>>>> graph corrected
+  "likes": {
+   "count": 0
+  },
+  "location": {
+<<<<<<< HEAD
+   "latitude": 37.869333,
+   "longitude": -122.2665
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8328/8082125330_50e97142ff_z.jpg",
+=======
+   "latitude": 37.8695,
+   "longitude": -122.2595
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8327/8083403359_64b804f0e0_z.jpg",
+>>>>>>> graph corrected
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8328/8082125330_50e97142ff_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8327/8083403359_64b804f0e0_z.jpg",
+>>>>>>> graph corrected
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8328/8082125330_50e97142ff_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8327/8083403359_64b804f0e0_z.jpg",
+>>>>>>> graph corrected
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+<<<<<<< HEAD
+  "created_time": "1350140624",
+  "id": "flickr_8082892424",
+=======
+  "created_time": "1350099777",
+  "id": "flickr_8083399008",
+>>>>>>> graph corrected
+  "likes": {
+   "count": 0
+  },
+  "location": {
+<<<<<<< HEAD
+   "latitude": 37.866105,
+   "longitude": -122.265594
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8466/8082892424_2dbb825c36_z.jpg",
+=======
+   "latitude": 37.869667,
+   "longitude": -122.2595
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8332/8083399008_6794317b57_z.jpg",
+>>>>>>> graph corrected
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8466/8082892424_2dbb825c36_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8332/8083399008_6794317b57_z.jpg",
+>>>>>>> graph corrected
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8466/8082892424_2dbb825c36_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8332/8083399008_6794317b57_z.jpg",
+>>>>>>> graph corrected
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+<<<<<<< HEAD
+  "created_time": "1350099089",
+  "id": "flickr_8083395976",
+=======
+  "created_time": "1350099154",
+  "id": "flickr_8083403359",
+>>>>>>> graph corrected
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.8695,
+<<<<<<< HEAD
+   "longitude": -122.2605
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8055/8083395976_5a3f455366_z.jpg",
+=======
+   "longitude": -122.2595
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8327/8083403359_64b804f0e0_z.jpg",
+>>>>>>> graph corrected
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8055/8083395976_5a3f455366_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8327/8083403359_64b804f0e0_z.jpg",
+>>>>>>> graph corrected
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8055/8083395976_5a3f455366_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8327/8083403359_64b804f0e0_z.jpg",
+>>>>>>> graph corrected
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+<<<<<<< HEAD
+  "created_time": "1348533330",
+  "id": "flickr_8082130617",
+=======
+  "created_time": "1350099777",
+  "id": "flickr_8083399008",
+>>>>>>> graph corrected
+  "likes": {
+   "count": 0
+  },
+  "location": {
+<<<<<<< HEAD
+   "latitude": 37.873,
+   "longitude": -122.259834
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8054/8082130617_cc24f51e19_z.jpg",
+=======
+   "latitude": 37.869667,
+   "longitude": -122.2595
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8332/8083399008_6794317b57_z.jpg",
+>>>>>>> graph corrected
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8054/8082130617_cc24f51e19_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8332/8083399008_6794317b57_z.jpg",
+>>>>>>> graph corrected
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8054/8082130617_cc24f51e19_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8332/8083399008_6794317b57_z.jpg",
+>>>>>>> graph corrected
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+<<<<<<< HEAD
+  "created_time": "1350099777",
+  "id": "flickr_8083399008",
+=======
+  "created_time": "1348533367",
+  "id": "flickr_8082131483",
+>>>>>>> graph corrected
+  "likes": {
+   "count": 0
+  },
+  "location": {
+<<<<<<< HEAD
+   "latitude": 37.869667,
+=======
+   "latitude": 37.872833,
+>>>>>>> graph corrected
+   "longitude": -122.2595
+  },
+  "images": {
+   "low_resolution": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8332/8083399008_9c831317ee_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+>>>>>>> graph corrected
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8332/8083399008_9c831317ee_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+>>>>>>> graph corrected
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8332/8083399008_9c831317ee_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+>>>>>>> graph corrected
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+<<<<<<< HEAD
+  "created_time": "1350099154",
+  "id": "flickr_8083403359",
+=======
+  "created_time": "1350099806",
+  "id": "flickr_8083405899",
+>>>>>>> graph corrected
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.8695,
+<<<<<<< HEAD
+   "longitude": -122.2595
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8327/8083403359_64b804f0e0_z.jpg",
+=======
+   "longitude": -122.259333
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8466/8083405899_b545846f62_z.jpg",
+>>>>>>> graph corrected
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8327/8083403359_64b804f0e0_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8466/8083405899_b545846f62_z.jpg",
+>>>>>>> graph corrected
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8327/8083403359_64b804f0e0_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8466/8083405899_b545846f62_z.jpg",
+>>>>>>> graph corrected
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+<<<<<<< HEAD
+  "created_time": "1348533367",
+  "id": "flickr_8082131483",
+=======
+  "created_time": "1350099260",
+  "id": "flickr_8083397520",
+>>>>>>> graph corrected
+  "likes": {
+   "count": 0
+  },
+  "location": {
+<<<<<<< HEAD
+   "latitude": 37.872833,
+   "longitude": -122.2595
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+=======
+   "latitude": 37.8705,
+   "longitude": -122.259333
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8186/8083397520_9f0c5c4de5_z.jpg",
+>>>>>>> graph corrected
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8186/8083397520_9f0c5c4de5_z.jpg",
+>>>>>>> graph corrected
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+<<<<<<< HEAD
+    "url": "http://farm9.static.flickr.com/8466/8082131483_16894ff1c4_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8186/8083397520_9f0c5c4de5_z.jpg",
+>>>>>>> graph corrected
     "width": 612,
     "height": 612
    }
@@ -347,17 +1390,29 @@
   },
   "images": {
    "low_resolution": {
+<<<<<<< HEAD
     "url": "http://farm9.static.flickr.com/8466/8083405899_728bd7c43a_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8466/8083405899_b545846f62_z.jpg",
+>>>>>>> graph corrected
     "width": 306,
     "height": 306
    },
    "thumbnail": {
+<<<<<<< HEAD
     "url": "http://farm9.static.flickr.com/8466/8083405899_728bd7c43a_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8466/8083405899_b545846f62_z.jpg",
+>>>>>>> graph corrected
     "width": 150,
     "height": 150
    },
    "standard_resolution": {
+<<<<<<< HEAD
     "url": "http://farm9.static.flickr.com/8466/8083405899_728bd7c43a_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8466/8083405899_b545846f62_z.jpg",
+>>>>>>> graph corrected
     "width": 612,
     "height": 612
    }
@@ -448,6 +1503,65 @@
   }
  },
  {
+<<<<<<< HEAD
+=======
+  "created_time": "1350099092",
+  "id": "flickr_8083402749",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.869667,
+   "longitude": -122.259167
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8467/8083402749_3e1dfa96e9_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8467/8083402749_3e1dfa96e9_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8467/8083402749_3e1dfa96e9_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+  "created_time": "1347733716",
+  "id": "flickr_8082757041",
+  "likes": {
+   "count": 0
+  },
+  "location": {
+   "latitude": 37.872833,
+   "longitude": -122.259167
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8336/8082757041_fdde9f07a7_z.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://farm9.static.flickr.com/8336/8082757041_fdde9f07a7_z.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://farm9.static.flickr.com/8336/8082757041_fdde9f07a7_z.jpg",
+    "width": 612,
+    "height": 612
+   }
+  }
+ },
+ {
+>>>>>>> graph corrected
   "created_time": "1348533682",
   "id": "flickr_8082126130",
   "likes": {
@@ -515,17 +1629,29 @@
   },
   "images": {
    "low_resolution": {
+<<<<<<< HEAD
     "url": "http://farm9.static.flickr.com/8335/8083404231_f198e13b36_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8335/8083404231_1c6c2e0aeb_z.jpg",
+>>>>>>> graph corrected
     "width": 306,
     "height": 306
    },
    "thumbnail": {
+<<<<<<< HEAD
     "url": "http://farm9.static.flickr.com/8335/8083404231_f198e13b36_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8335/8083404231_1c6c2e0aeb_z.jpg",
+>>>>>>> graph corrected
     "width": 150,
     "height": 150
    },
    "standard_resolution": {
+<<<<<<< HEAD
     "url": "http://farm9.static.flickr.com/8335/8083404231_f198e13b36_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8335/8083404231_1c6c2e0aeb_z.jpg",
+>>>>>>> graph corrected
     "width": 612,
     "height": 612
    }
@@ -543,45 +1669,79 @@
   },
   "images": {
    "low_resolution": {
+<<<<<<< HEAD
     "url": "http://farm9.static.flickr.com/8326/8083404607_e820218ce4_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8326/8083404607_0c64a3e27c_z.jpg",
+>>>>>>> graph corrected
     "width": 306,
     "height": 306
    },
    "thumbnail": {
+<<<<<<< HEAD
     "url": "http://farm9.static.flickr.com/8326/8083404607_e820218ce4_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8326/8083404607_0c64a3e27c_z.jpg",
+>>>>>>> graph corrected
     "width": 150,
     "height": 150
    },
    "standard_resolution": {
+<<<<<<< HEAD
     "url": "http://farm9.static.flickr.com/8326/8083404607_e820218ce4_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8326/8083404607_0c64a3e27c_z.jpg",
+>>>>>>> graph corrected
     "width": 612,
     "height": 612
    }
   }
  },
  {
+<<<<<<< HEAD
   "created_time": "1348539491",
   "id": "flickr_8082132593",
+=======
+  "created_time": "1350099423",
+  "id": "flickr_8083404231",
+>>>>>>> graph corrected
   "likes": {
    "count": 0
   },
   "location": {
+<<<<<<< HEAD
    "latitude": 37.868166,
    "longitude": -122.254334
   },
   "images": {
    "low_resolution": {
     "url": "http://farm9.static.flickr.com/8330/8082132593_ea134c895c_z.jpg",
+=======
+   "latitude": 37.871333,
+   "longitude": -122.258167
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://farm9.static.flickr.com/8335/8083404231_1c6c2e0aeb_z.jpg",
+>>>>>>> graph corrected
     "width": 306,
     "height": 306
    },
    "thumbnail": {
+<<<<<<< HEAD
     "url": "http://farm9.static.flickr.com/8330/8082132593_ea134c895c_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8335/8083404231_1c6c2e0aeb_z.jpg",
+>>>>>>> graph corrected
     "width": 150,
     "height": 150
    },
    "standard_resolution": {
+<<<<<<< HEAD
     "url": "http://farm9.static.flickr.com/8330/8082132593_ea134c895c_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8335/8083404231_1c6c2e0aeb_z.jpg",
+>>>>>>> graph corrected
     "width": 612,
     "height": 612
    }
@@ -637,6 +1797,7 @@
     "height": 150
    },
    "standard_resolution": {
+<<<<<<< HEAD
     "url": "http://farm9.static.flickr.com/8330/8082132593_ea134c895c_z.jpg",
     "width": 612,
     "height": 612
@@ -666,6 +1827,9 @@
    },
    "standard_resolution": {
     "url": "http://farm9.static.flickr.com/8183/8082132359_1ae4d45d7e_z.jpg",
+=======
+    "url": "http://farm9.static.flickr.com/8330/8082132593_ea134c895c_z.jpg",
+>>>>>>> graph corrected
     "width": 612,
     "height": 612
    }
@@ -904,6 +2068,7 @@
  {
   "attribution": null,
   "tags": [
+<<<<<<< HEAD
    "mylilangel"
   ],
   "type": "image",
@@ -983,6 +2148,8 @@
  {
   "attribution": null,
   "tags": [
+=======
+>>>>>>> graph corrected
    "foreveryoung"
   ],
   "type": "image",
@@ -1108,6 +2275,88 @@
  {
   "attribution": null,
   "tags": [
+<<<<<<< HEAD
+=======
+   "mylilangel"
+  ],
+  "type": "image",
+  "location": {
+   "latitude": 37.479820251,
+   "longitude": -122.191917419
+  },
+  "comments": {
+   "count": 1,
+   "data": [
+    {
+     "created_time": "1350112644",
+     "text": "#mylilangel",
+     "from": {
+      "username": "mrsjqmok",
+      "profile_picture": "http://images.instagram.com/profiles/profile_47529607_75sq_1348206400.jpg",
+      "id": "47529607",
+      "full_name": "mrsjqmok"
+     },
+     "id": "301089143143269156"
+    }
+   ]
+  },
+  "filter": "Sierra",
+  "created_time": "1350112587",
+  "link": "http://instagr.am/p/Qtrox9yAOQ/",
+  "likes": {
+   "count": 1,
+   "data": [
+    {
+     "username": "ira_ebrada",
+     "profile_picture": "http://images.instagram.com/profiles/profile_20819716_75sq_1345575408.jpg",
+     "id": "20819716",
+     "full_name": "Ira Ebrada"
+    }
+   ]
+  },
+  "images": {
+   "low_resolution": {
+    "url": "http://distilleryimage4.s3.amazonaws.com/e7a306b6150511e2aaec22000a1cbf22_6.jpg",
+    "width": 306,
+    "height": 306
+   },
+   "thumbnail": {
+    "url": "http://distilleryimage4.s3.amazonaws.com/e7a306b6150511e2aaec22000a1cbf22_5.jpg",
+    "width": 150,
+    "height": 150
+   },
+   "standard_resolution": {
+    "url": "http://distilleryimage4.s3.amazonaws.com/e7a306b6150511e2aaec22000a1cbf22_7.jpg",
+    "width": 612,
+    "height": 612
+   }
+  },
+  "caption": {
+   "created_time": "1350112602",
+   "text": "So peaceful.",
+   "from": {
+    "username": "mrsjqmok",
+    "profile_picture": "http://images.instagram.com/profiles/profile_47529607_75sq_1348206400.jpg",
+    "id": "47529607",
+    "full_name": "mrsjqmok"
+   },
+   "id": "301088790343582497"
+  },
+  "user_has_liked": false,
+  "id": "301088668532605840_47529607",
+  "user": {
+   "username": "mrsjqmok",
+   "website": "",
+   "bio": "Raising a God-loving kid.I hav a gr8t life,1 full of adventures.Live-Yes!Laugh-LOTS! &Love-wouldn't hav it any other way.I'm not lucky,I'm BLESSED!",
+   "profile_picture": "http://images.instagram.com/profiles/profile_47529607_75sq_1348206400.jpg",
+   "full_name": "mrsjqmok",
+   "id": "47529607"
+  }
+ },
+ {
+  "attribution": null,
+  "tags": [
+>>>>>>> graph corrected
    "explore"
   ],
   "type": "image",
@@ -3902,33 +5151,67 @@
    "count": 0,
    "data": []
   },
+<<<<<<< HEAD
   "filter": "Brannan",
   "created_time": "1350104035",
   "link": "http://instagr.am/p/QtbUz2CpQG/",
+=======
+  "filter": "Rise",
+  "created_time": "1350103376",
+  "link": "http://instagr.am/p/QtaESZCpfV/",
+>>>>>>> graph corrected
   "likes": {
    "count": 0,
    "data": []
   },
   "images": {
    "low_resolution": {
+<<<<<<< HEAD
     "url": "http://distilleryimage2.s3.amazonaws.com/fe20a92014f111e28b2322000a1fbe1b_6.jpg",
+=======
+    "url": "http://distilleryimage1.s3.amazonaws.com/74f3450014f011e2b4ee22000a1e8aed_6.jpg",
+>>>>>>> graph corrected
     "width": 306,
     "height": 306
    },
    "thumbnail": {
+<<<<<<< HEAD
     "url": "http://distilleryimage2.s3.amazonaws.com/fe20a92014f111e28b2322000a1fbe1b_5.jpg",
+=======
+    "url": "http://distilleryimage1.s3.amazonaws.com/74f3450014f011e2b4ee22000a1e8aed_5.jpg",
+>>>>>>> graph corrected
     "width": 150,
     "height": 150
    },
    "standard_resolution": {
+<<<<<<< HEAD
     "url": "http://distilleryimage2.s3.amazonaws.com/fe20a92014f111e28b2322000a1fbe1b_7.jpg",
+=======
+    "url": "http://distilleryimage1.s3.amazonaws.com/74f3450014f011e2b4ee22000a1e8aed_7.jpg",
+>>>>>>> graph corrected
     "width": 612,
     "height": 612
    }
   },
+<<<<<<< HEAD
   "caption": null,
   "user_has_liked": false,
   "id": "301016927416521734_23600676",
+=======
+  "caption": {
+   "created_time": "1350103511",
+   "text": "Veggie burger",
+   "from": {
+    "username": "rinatvardi",
+    "profile_picture": "http://images.instagram.com/profiles/profile_23600676_75sq_1348767934.jpg",
+    "id": "23600676",
+    "full_name": "rinatvardi"
+   },
+   "id": "301012527608403772"
+  },
+  "user_has_liked": false,
+  "id": "301011393938364373_23600676",
+>>>>>>> graph corrected
   "user": {
    "username": "rinatvardi",
    "website": "",
@@ -3952,30 +5235,49 @@
    "count": 0,
    "data": []
   },
+<<<<<<< HEAD
   "filter": "Rise",
   "created_time": "1350103376",
   "link": "http://instagr.am/p/QtaESZCpfV/",
+=======
+  "filter": "Brannan",
+  "created_time": "1350104035",
+  "link": "http://instagr.am/p/QtbUz2CpQG/",
+>>>>>>> graph corrected
   "likes": {
    "count": 0,
    "data": []
   },
   "images": {
    "low_resolution": {
+<<<<<<< HEAD
     "url": "http://distilleryimage1.s3.amazonaws.com/74f3450014f011e2b4ee22000a1e8aed_6.jpg",
+=======
+    "url": "http://distilleryimage2.s3.amazonaws.com/fe20a92014f111e28b2322000a1fbe1b_6.jpg",
+>>>>>>> graph corrected
     "width": 306,
     "height": 306
    },
    "thumbnail": {
+<<<<<<< HEAD
     "url": "http://distilleryimage1.s3.amazonaws.com/74f3450014f011e2b4ee22000a1e8aed_5.jpg",
+=======
+    "url": "http://distilleryimage2.s3.amazonaws.com/fe20a92014f111e28b2322000a1fbe1b_5.jpg",
+>>>>>>> graph corrected
     "width": 150,
     "height": 150
    },
    "standard_resolution": {
+<<<<<<< HEAD
     "url": "http://distilleryimage1.s3.amazonaws.com/74f3450014f011e2b4ee22000a1e8aed_7.jpg",
+=======
+    "url": "http://distilleryimage2.s3.amazonaws.com/fe20a92014f111e28b2322000a1fbe1b_7.jpg",
+>>>>>>> graph corrected
     "width": 612,
     "height": 612
    }
   },
+<<<<<<< HEAD
   "caption": {
    "created_time": "1350103511",
    "text": "Veggie burger",
@@ -3989,6 +5291,11 @@
   },
   "user_has_liked": false,
   "id": "301011393938364373_23600676",
+=======
+  "caption": null,
+  "user_has_liked": false,
+  "id": "301016927416521734_23600676",
+>>>>>>> graph corrected
   "user": {
    "username": "rinatvardi",
    "website": "",
@@ -5028,32 +6335,53 @@
    "data": []
   },
   "filter": "Rise",
+<<<<<<< HEAD
   "created_time": "1350104789",
   "link": "http://instagr.am/p/Qtcw2uCpRI/",
+=======
+  "created_time": "1350104930",
+  "link": "http://instagr.am/p/QtdCCeipRb/",
+>>>>>>> graph corrected
   "likes": {
    "count": 0,
    "data": []
   },
   "images": {
    "low_resolution": {
+<<<<<<< HEAD
     "url": "http://distilleryimage8.s3.amazonaws.com/bf8fb0b414f311e2b4d31231380fddd1_6.jpg",
+=======
+    "url": "http://distilleryimage3.s3.amazonaws.com/1377c55e14f411e2a94622000a1e8b13_6.jpg",
+>>>>>>> graph corrected
     "width": 306,
     "height": 306
    },
    "thumbnail": {
+<<<<<<< HEAD
     "url": "http://distilleryimage8.s3.amazonaws.com/bf8fb0b414f311e2b4d31231380fddd1_5.jpg",
+=======
+    "url": "http://distilleryimage3.s3.amazonaws.com/1377c55e14f411e2a94622000a1e8b13_5.jpg",
+>>>>>>> graph corrected
     "width": 150,
     "height": 150
    },
    "standard_resolution": {
+<<<<<<< HEAD
     "url": "http://distilleryimage8.s3.amazonaws.com/bf8fb0b414f311e2b4d31231380fddd1_7.jpg",
+=======
+    "url": "http://distilleryimage3.s3.amazonaws.com/1377c55e14f411e2a94622000a1e8b13_7.jpg",
+>>>>>>> graph corrected
     "width": 612,
     "height": 612
    }
   },
   "caption": null,
   "user_has_liked": false,
+<<<<<<< HEAD
   "id": "301023252695389256_23600676",
+=======
+  "id": "301024433551348827_23600676",
+>>>>>>> graph corrected
   "user": {
    "username": "rinatvardi",
    "website": "",
@@ -5078,32 +6406,53 @@
    "data": []
   },
   "filter": "Rise",
+<<<<<<< HEAD
   "created_time": "1350104930",
   "link": "http://instagr.am/p/QtdCCeipRb/",
+=======
+  "created_time": "1350104789",
+  "link": "http://instagr.am/p/Qtcw2uCpRI/",
+>>>>>>> graph corrected
   "likes": {
    "count": 0,
    "data": []
   },
   "images": {
    "low_resolution": {
+<<<<<<< HEAD
     "url": "http://distilleryimage3.s3.amazonaws.com/1377c55e14f411e2a94622000a1e8b13_6.jpg",
+=======
+    "url": "http://distilleryimage8.s3.amazonaws.com/bf8fb0b414f311e2b4d31231380fddd1_6.jpg",
+>>>>>>> graph corrected
     "width": 306,
     "height": 306
    },
    "thumbnail": {
+<<<<<<< HEAD
     "url": "http://distilleryimage3.s3.amazonaws.com/1377c55e14f411e2a94622000a1e8b13_5.jpg",
+=======
+    "url": "http://distilleryimage8.s3.amazonaws.com/bf8fb0b414f311e2b4d31231380fddd1_5.jpg",
+>>>>>>> graph corrected
     "width": 150,
     "height": 150
    },
    "standard_resolution": {
+<<<<<<< HEAD
     "url": "http://distilleryimage3.s3.amazonaws.com/1377c55e14f411e2a94622000a1e8b13_7.jpg",
+=======
+    "url": "http://distilleryimage8.s3.amazonaws.com/bf8fb0b414f311e2b4d31231380fddd1_7.jpg",
+>>>>>>> graph corrected
     "width": 612,
     "height": 612
    }
   },
   "caption": null,
   "user_has_liked": false,
+<<<<<<< HEAD
   "id": "301024433551348827_23600676",
+=======
+  "id": "301023252695389256_23600676",
+>>>>>>> graph corrected
   "user": {
    "username": "rinatvardi",
    "website": "",
@@ -5114,6 +6463,7 @@
   }
  },
  {
+<<<<<<< HEAD
   "created_time": "1348620299",
   "id": "flickr_8082137101",
   "likes": {
@@ -5142,6 +6492,8 @@
   }
  },
  {
+=======
+>>>>>>> graph corrected
   "attribution": null,
   "tags": [],
   "type": "image",

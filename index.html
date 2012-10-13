@@ -129,13 +129,13 @@
 
 <script>
 function clearGraph() {
-
+$('#chart_container').empty();
   $('#chart_container').html(
     '<div id="chart"></div><div id="timeline"></div><div id="slider"></div>'
   );
 }
 function plotgraph(graphdata){
-	console.log("plotgraph");
+	console.log(graphdata.length);
 	clearGraph();
 	var graph = new Rickshaw.Graph( {
 		element: document.getElementById("chart"),

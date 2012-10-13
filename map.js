@@ -154,6 +154,7 @@ function computeHist(data){
     var ratio;
     var array=[];
     var i=0;
+    graphdata = [];
     while (i<nb_points) {array[i] = 0;i++;}
 
     for (var i = 0;i < data.length ; i++) {
