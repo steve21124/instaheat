@@ -1,6 +1,8 @@
-// returns google maps points from a list of raw points
-// .lon: longitude
-// .lat: latitude
+var sanFrancisco = new google.maps.LatLng(37.774546, -122.433523);
+var shenZhen = new google.maps.LatLng(22.562025, 114.029846);
+var map, heatmap, pointArray;
+
+// Returns google maps points from a list of raw points.
 function getCoord(points) {
     var mapPts = [];
     for (var i = 0; i < points.length; ++i) {
@@ -9,30 +11,27 @@ function getCoord(points) {
     return mapPts;
 }
 
-// fetch raw data containing points info
+// Fetches raw data containing points info.
 function fetchRawPts() {
+    // TODO
 }
 
+// Initializes and renders the heat map.
 function initialize() {
-
-    var sanFrancisco = new google.maps.LatLng(37.774546, -122.433523);
 
     // the options of the heat map
     var mapOptions = {
         zoom: 10,
-        center: sanFrancisco,
+        center: shenZhen,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    // toy
-    // var pointsData = getCoord([{'a':1, lon: 22, lat:112}, {lon:22, lat:110}]); 
-    var pointsData = getCoord(fetchRawPts());
+    var pointsData = getCoord([{lon: 22.489065, lat: 113.912812}, {lon: 22.485591, lat: 113.917026}]); // my home ;)
+    //var pointsData = getCoord(fetchRawPts());
 
-    var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-
-    var pointArray = new google.maps.MVCArray(pointsData);
-
-    var heatmap = new google.maps.visualization.HeatmapLayer({
+    map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+    pointArray = new google.maps.MVCArray(pointsData);
+    heatmap = new google.maps.visualization.HeatmapLayer({
         data: pointArray
     });
 
