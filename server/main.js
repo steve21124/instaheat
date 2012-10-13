@@ -240,7 +240,7 @@ function distance (a,b) {
 }
 
 function save_cache () {
-    fs.writeFile('cache_data.json', JSON.stringify(cache));
+    fs.writeFile('cache_data.json', JSON.stringify(cache, null, 1));
 }
 
 function search_cache (lat, lon, dist_km) {
