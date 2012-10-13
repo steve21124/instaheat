@@ -164,9 +164,9 @@ function computeHist(data){
         }
     };
     for (var i = 0;i < nb_points ; i++) {
-        graphdata.push({x: i,y: array[i]});
+        graphdata.push({x: i*60,y: array[i]});
     };
-
+    //console.log("Graphdata =:", graphdata);
     plotgraph(graphdata);
 }
 
