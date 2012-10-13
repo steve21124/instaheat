@@ -19,7 +19,21 @@ function toMapPts(points) {
 	    mapPts.push(pt);
 	    loaded_points.push(points[i].id);
 	    all_points.push([pt, points[i]]);
-	}
+	   }
+    }
+    return mapPts;
+}
+
+function toMapPtsFrsq(points) {
+    var mapPts = [];
+    for (var i = 0; i < points.length; ++i) {
+        //console.log(points[i].location.longitude, points[i].location.latitude);
+        if(loaded_points.indexOf(points[i].id) == -1) { // check if the point was already loaded into google maps
+        var pt = {location: new google.maps.LatLng(points[i].location.latitude, points[i].location.longitude), weight: points[i].likes.count};
+        mapPts.push(pt);
+        loaded_points.push(points[i].id);
+        all_points.push([pt, points[i]]);
+        }
     }
     return mapPts;
 }
@@ -93,6 +107,25 @@ function channelLoc(position) {
             computeHist(d);
 
             loadHeatMap(toMapPts(d), position.coords.latitude,
+                        position.coords.longitude);
+            processImages(d);
+        },
+        error: function () {
+            console.log("ERROR: Unable to fetch Instagram data.");
+        }
+    });
+}
+
+function channelLocFrsq(position) {
+    console.log("in channelLoc");
+    $.ajax({
+        url: "/data?lon=" + position.coords.longitude + "&lat=" +
+            position.coords.latitude,//"&dist="dist
+        dataType: "json",
+        success: function (d) {
+            computeHist(d);
+
+            loadHeatMap(toMapFrsqPts(d), position.coords.latitude,
                         position.coords.longitude);
             processImages(d);
         },
