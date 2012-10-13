@@ -40,6 +40,7 @@ function toMapPtsFrsq(points) {
 
 // Fetches raw data containing points info.
 function getLocation() {
+    console.log("in getLocation");
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(channelLoc);
     } else {
@@ -92,7 +93,7 @@ function loadHeatMap(mapPts, lat ,lon) {
        data: pointArray
     });
     heatmap.setMap(map);
-    //map.panTo(new google.maps.LatLng(lat, lon));
+    map.panTo(new google.maps.LatLng(lat, lon));
 }
 
 // Makes an ajax request to browser to retrieve user's location, and channels
