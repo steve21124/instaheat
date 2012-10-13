@@ -42,9 +42,22 @@ function initialize() {
     map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
     var nowTime, lastTime = 0, newCenter;
-    google.maps.event.addListener(map, 'bounds_changed', function() {
+    var MIN_INTERVAL_MLSEC = 1800;
+
+    google.maps.event.addListener(map, 'dragend', function() {
         nowTime = new Date().getTime();
-        if (nowTime - lastTime > 1500) {
+        //console.log("dragend fired: new lat lon are ", map.getCenter().lat(), map.getCenter().lng());
+        if (nowTime - lastTime > MIN_INTERVAL_MLSEC) {
+            newCenter = {coords: {latitude: map.getCenter().lat(), longitude: map.getCenter().lng()}};
+            channelLoc(newCenter)
+        }
+        lastTime = new Date().getTime();
+    });
+
+    google.maps.event.addListener(map, 'zoom_changed', function() {
+        nowTime = new Date().getTime();
+        //console.log("zoom_changed fired: new lat lon are ", map.getCenter().lat(), map.getCenter().lng());
+        if (nowTime - lastTime > MIN_INTERVAL_MLSEC) {
             newCenter = {coords: {latitude: map.getCenter().lat(), longitude: map.getCenter().lng()}};
             channelLoc(newCenter)
         }
