@@ -68,12 +68,9 @@ function channelLoc(position) {
             position.coords.latitude,//"&dist="dist
         dataType: "json",
         success: function (d) {
-<<<<<<< HEAD
-            //console.log(d);
-=======
-            console.log(d);
+
             computeHist(d);
->>>>>>> histogram working
+
             loadHeatMap(toMapPts(d), position.coords.latitude,
                         position.coords.longitude);
             processImages(d);
@@ -112,6 +109,6 @@ function computeHist(data){
     for (var i = 0;i < nb_points ; i++) {
         graphdata.push({x: i,y: array[i]});
     };
-    console.log(graphdata);
+
     plotgraph(graphdata);
 }
