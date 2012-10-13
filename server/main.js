@@ -80,10 +80,10 @@ function getPics (lat, lon, dist_km, count, callback, timestamp) {
 }
 
 
-// flicker
+// flickr
 
 // { "id": "8081614731", "owner": "23119895@N00", "secret": "8ac217ef5f", "server": "8475", "farm": 9, "title": "Pumpkins", "ispublic": 1, "isfriend": 0, "isfamily": 0, "datetaken": "2012-10-07 16:07:06", "datetakengranularity": 0, "latitude": 37.475167, "longitude": -122.418167, "accuracy": 16, "context": 0, "place_id": "N8DyJRJTVrsXl6Uo", "woeid": "2416227", "geo_is_family": 0, "geo_is_friend": 0, "geo_is_contact": 0, "geo_is_public": 1 , views: 26 },
-// flicker url: http://farm{farm}.static.flickr.com/{server}/{id}_{secret}_z.jpg'
+// flickr url: http://farm{farm}.static.flickr.com/{server}/{id}_{secret}_z.jpg'
 
 /* instagram:
    {
@@ -125,7 +125,7 @@ function getPics (lat, lon, dist_km, count, callback, timestamp) {
 */
 
 
-function flicker2insta (pic) {
+function flickr2insta (pic) {
     var url = ("http://farm{farm}.static.flickr.com/{server}/{id}_{secret}_z.jpg")
 	.replace(/{farm}/g, pic.farm)
 	.replace(/{server}/g, pic.server)
@@ -133,7 +133,7 @@ function flicker2insta (pic) {
 	.replace(/{secret}/g, pic.secret);
     return {
 	"created_time": new Date(pic.datetaken)*1/1000 + "",
-	"id": "flicker_"+pic.id,
+	"id": "flickr_"+pic.id,
 	"likes": {
 	    "count": Math.floor(pic.views/10),
 	},
@@ -161,7 +161,7 @@ function flicker2insta (pic) {
     };
 }
 
-function flickerGet (lat, lon, dist_km, count, callback, timestamp) {
+function flickrGet (lat, lon, dist_km, count, callback, timestamp) {
     var ret = [];
     if(dist_km > 20) dist_km = 20;
     var url = "http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=45165da8fef2794bea1b10800c19c67e&lat="+lat+"&lon="+lon+"&radius="+dist_km+
@@ -179,17 +179,17 @@ function flickerGet (lat, lon, dist_km, count, callback, timestamp) {
 		console.log(buffer);
 		var result = JSON.parse(buffer);
 		for(var i=0; i < result.photos.photo.length; i++) {
-		    j.push(flicker2insta(result.photos.photo[i]));
+		    j.push(flickr2insta(result.photos.photo[i]));
 		}
 
 	    }catch(e) {
-		console.log('flicker error', e);
+		console.log('flickr error', e);
 	    }
 
 	    callback(j);
 	});
     }).on('error', function (err) {
-	console.log('Flicker error ', err);
+	console.log('flickr error ', err);
 	callback([]);
     });
 }
@@ -297,7 +297,7 @@ app.get('/_test', function (req, res) {
 });
 
 app.get('/ftest', function (req, res) {
-    flickerGet(37.483, -122.15, 10, 10, function (c) {
+    flickrGet(37.483, -122.15, 10, 10, function (c) {
 	res.end(JSON.stringify(c));
     });
 });
@@ -331,7 +331,7 @@ app.get('/data', function(req, res) {
 		getPics(lat, lon, dist, count, this);
 	    },
 	    function () {
-		flickerGet(lat, lon, dist, count, this);
+		flickrGet(lat, lon, dist, count, this);
 	    }
 	],
 	function () {
