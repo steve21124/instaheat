@@ -81,9 +81,10 @@
 	.graph{
 
 	background: url('../img/paper.jpg');
-	height: 100px;
+	background-size: 200px 900px;
+height:200px;
 	width: 900px;
-	padding-top: 15px;
+	
 
 	}
 	.gallery{
