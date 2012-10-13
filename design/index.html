@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Instaheat</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<!-- 1140px Grid styles for IE -->
+	<!--[if lte IE 9]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" /><![endif]-->
+
+	<!-- The 1140px Grid - http://cssgrid.net/ -->
+	<link rel="stylesheet" href="css/1140.css" type="text/css" media="screen" />
+	
+	<!-- Your styles -->
+	<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" />
+	
+	<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
+	<script type="text/javascript" src="js/css3-mediaqueries.js"></script>
+
+	<!-- JS for the char plotting -->
+	<script src="js/d3.min.js"></script>
+	<script src="js/d3.layout.min.js"></script>
+	<script src="js/rickshaw.min.js"></script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+	<!--header -->
+	<div class="row">
+		<div class="onecol"></div>
+		<div class="tencol ">
+			<div class="logo"></div>
+		</div>
+		<div class="onecol last"></div>
+	</div>
+
+	<!--maps -->
+	<div class="row">
+		<div class="onecol"></div>
+		<div class="eightcol marginblock">
+			<iframe width="746" height="495" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=+&amp;q=berkeley&amp;ie=UTF8&amp;hq=&amp;hnear=Berkeley,+Alameda,+California&amp;ll=37.871593,-122.272747&amp;spn=0.08212,0.154324&amp;t=m&amp;z=13&amp;output=embed"></iframe></small>
+		</div>
+		<div class="twocol ">
+			<div class="picture"></div>
+			<div class="picture"></div>
+			<div class="picture"></div>
+		</div>
+		<div class="onecol last"></div>
+	</div>
+</div>
+
+	<!--stats -->
+		<!--header -->
+	<div class="row">
+		<div class="onecol"></div>
+		<div class="tencol ">
+			<div class="stats">
+				<div class="topbar"></div>
+				<div class="graph"><div id="chart"></div></div>
+			</div>
+		</div>
+		<div class="onecol last"></div>
+	</div>
+
+	<footer>
+
+	</footer>
+	<script>
+
+	var graph = new Rickshaw.Graph( {
+		element: document.querySelector("#chart"),
+		width: 235,
+		height: 85,
+		renderer: 'bar',
+		series: [ 
+			{
+				data: [ { x: 0, y: 40 }, { x: 1, y: 49 }, { x: 2, y: 38 }, { x: 3, y: 30 }, { x: 4, y: 32 },
+				{x: 5,y: Math.random()*30},
+				{x: 6,y: Math.random()*30},
+				{x: 7,y: Math.random()*30},
+				{x: 8,y: Math.random()*30},
+				{x: 9,y: Math.random()*30},
+				{x: 10,y: Math.random()*30}, 
+				{x: 11,y: Math.random()*30},
+				{x: 12,y: Math.random()*30},
+				{x: 13,y: Math.random()*30},
+				{x: 14,y: Math.random()*30},],
+				color: '#4682b4'
+			}]
+	} );
+
+	graph.renderer.unstack = true;
+	graph.render();
+	</script>
+
+</body>
+
+</html>

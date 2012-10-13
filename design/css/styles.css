@@ -1,0 +1,63 @@
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+
+	body {
+		background:url('../img/bg.png');;
+	}
+	.logo{
+		background: url('../img/logo.png');
+		height:65px;
+		width: 188px;
+
+	}
+	.marginblock{
+		margin-right: 0px;
+	}
+	.picture{
+		background: url('../img/pic.png');
+		height:165px;
+		width: 163px;
+	}
+	.stats{
+		background: white;
+		margin-top:20px;
+		width: 909px;
+	}
+	.topbar{	
+		background: url('../img/topbar.png');
+		height:45px;
+		width: 909px;
+	}
+	.graph{
+		padding:10px 0 0 10px ;
+	}
+	footer{
+		height: 60px;
+
+	}
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 767px) {
+
+	body {
+		
+	}
+
+}
+
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+
+/*	.logo {
+		background: url(logo2x.jpg) no-repeat;
+		background-size: 212px 303px;
+	}*/
+
+}
