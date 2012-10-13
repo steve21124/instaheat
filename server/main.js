@@ -209,7 +209,10 @@ function update_cache () {
 	return a.location.longitude - b.location.longitude;
     });
     for(var i=1; i < cache.length; i++) {
-	if(cache[i-1].id == cache[i].id) {
+	if(!cache[i] || !cache[i].id) {
+	    console.log('~~cache: ', cache[i]);
+	    cache.remove(i--);
+	}else if(cache[i-1].id == cache[i].id) {
 	    cache.remove(i--);
 	}
     }

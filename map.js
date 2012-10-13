@@ -7,6 +7,7 @@ var graphdata=[ ];
 
 // already loaded points in google maps
 var loaded_points=[];
+var all_points=[];
 
 // Transforms google maps points from a list of raw points.
 function toMapPts(points) {
@@ -14,8 +15,10 @@ function toMapPts(points) {
     for (var i = 0; i < points.length; ++i) {
         //console.log(points[i].location.longitude, points[i].location.latitude);
         if(loaded_points.indexOf(points[i].id) == -1) { // check if the point was already loaded into google maps
-	    mapPts.push(new google.maps.LatLng(points[i].location.latitude, points[i].location.longitude));
+	    var pt = new google.maps.LatLng(points[i].location.latitude, points[i].location.longitude);
+	    mapPts.push(pt);
 	    loaded_points.push(points[i].id);
+	    all_points.push([pt, points[i]]);
 	}
     }
     return mapPts;
@@ -75,7 +78,7 @@ function loadHeatMap(mapPts, lat ,lon) {
        data: pointArray
     });
     heatmap.setMap(map);
-    map.panTo(new google.maps.LatLng(lat, lon));
+    //map.panTo(new google.maps.LatLng(lat, lon));
 }
 
 // Makes an ajax request to browser to retrieve user's location, and channels
@@ -100,6 +103,7 @@ function channelLoc(position) {
 }
 
 function processImages(data) {
+    return;
     var i = 0;
     data.sort(function (a,b) {
         return b.likes.count - a.likes.count;
@@ -130,3 +134,28 @@ function computeHist(data){
 
     plotgraph(graphdata);
 }
+
+function updateImages() {
+    // first find images that are in the bounds
+    var bounds = map.getBounds();
+    var imgs = [];
+    for(var i = 0; i < all_points.length; i++) {
+	if(bounds.contains(all_points[i][0])) {
+	    imgs.push(all_points[i][1]);
+	}
+    }
+    imgs.sort(function (a,b) {
+	return b.likes.count - a.likes.count;
+    });
+    $(".picture").remove();
+    var target = $("#tabs-2");
+    for(var i = 0; i < imgs.length; i++) $('<div class="picture"></div>').appendTo(target);
+    var i=0;
+    $(".picture").each(function () {
+	$(this).css("background-image", "url(" + imgs[i++].images.standard_resolution.url + ")");
+    });
+}
+
+$(function () {
+    $(".icon2").click(updateImages);
+});
