@@ -6,19 +6,25 @@ var map, heatmap, pointArray;
 function getCoord(points) {
     var mapPts = [];
     for (var i = 0; i < points.length; ++i) {
-        mapPts.push(new google.maps.LatLng(points[i].lon, points[i].lat));
+        //console.log(points[i].location.longitude, points[i].location.latitude);
+        mapPts.push(new google.maps.LatLng(points[i].location.latitude, points[i].location.longitude));
     }
     return mapPts;
 }
 
 // Fetches raw data containing points info.
-function fetchRawPts() {
-    // TODO
-}
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(makeRequest);
+    }
+  else{alert("CRASH! getLocation")}
+  }
 
 // Initializes and renders the heat map.
-function initialize() {
-
+function initialize(pointsData) {
+    console.log(pointsData)
     // the options of the heat map
     var mapOptions = {
         zoom: 10,
@@ -26,7 +32,7 @@ function initialize() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    var pointsData = getCoord([{lon: 22.489065, lat: 113.912812}, {lon: 22.485591, lat: 113.917026}]); // my home ;)
+    //var pointsData = getCoord([{lon: 22.489065, lat: 113.912812}, {lon: 22.485591, lat: 113.917026}]); // my home ;)
     //var pointsData = getCoord(fetchRawPts());
 
     map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
@@ -37,3 +43,21 @@ function initialize() {
 
     heatmap.setMap(map);
 }
+
+// the Function that makes an ajax request to the node server
+function makeRequest(position)
+  {
+  console.log(position.coords.longitude)
+  // the 0 image is the newest image
+  $.ajax({
+  url: "/data?lon=" + position.coords.longitude + "&lat=" + position.coords.latitude,//"&dist="dist
+  dataType: "json",
+  success: function (d) {
+      initialize(getCoord(d));
+  },
+  error: function () {
+      console.log("ERROR");
+  } 
+    });
+
+  }
