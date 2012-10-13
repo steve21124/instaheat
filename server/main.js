@@ -4,6 +4,12 @@ var https = require('https');
 var fs = require('fs');
 var async = require('./async').async;
 
+if(typeof heroku == "undefined") {
+    heroku = false;
+}
+
+console.log("heroku: ", heroku);
+
 var instaToken = "235597193.173372b.50bdb5394d7b4063b8147f10b928532d"; // first token
 //var instaToken = "235597193.fc50470.fb1fab07e49a4cdcb9f45344e834d51a"; // second token
 
@@ -247,7 +253,7 @@ Array.prototype.remove = function(from, to) {
 
 var cache = [];
 try {
-    cache = JSON.parse(fs.readFileSync('cache_data.json').toString());
+    cache = JSON.parse(fs.readFileSync(heroku ? 'server/cache_data.json' : 'cache_data.json').toString());
 }catch(e) {
     console.log("json reading file error", e);
 }
@@ -409,11 +415,14 @@ app.get('/square', function(req, res) {
 });
 
 
+app.get('/ff', function (req, res) {
+    res.end(__dirname);
+});
 
 
 
 
-app.use(express.static(".."));
+app.use(express.static(__dirname + "/../"));
 app.use(app.router);
 
 
