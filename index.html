@@ -70,15 +70,18 @@
 		    <ul>
 		    	<li><div class="logo"></div></li>
 		        <li><a href="#tabs-1" class="icon">w</a></li>
-		        <li><a href="#tabs-2" class="icon">A</a></li>
+		        <li><a href="#tabs-2" class="icon2">A</a></li>
 		        <div style="clear: both;"></div>
 
 		    </ul>
 		    <div id="tabs-1">
-		        <p><div id="map_canvas" style="height: 495px; width: 909px;"></div></p>
+		    	<div class="topbarmap"></div>
+		    
+		        	<p><div id="map_canvas" style="height: 495px; width: 900px;"></div></p>
 		    </div>
 		    <div id="tabs-2">
-		        <div class="picture"></div><div class="picture"></div><div class="picture"></div>
+		    	<div class="topbarphoto"></div>
+		        <div class="picture"></div><div class="picture"></div><div class="picture"></div><div class="picture"></div><div class="picture"></div>
 		    </div>
 
 		</div>
@@ -126,7 +129,7 @@ function plotgraph(graphdata){
 
 	var graph = new Rickshaw.Graph( {
 		element: document.getElementById("chart"),
-		width: 909,
+		width: 900,
 		height: 100,
 		renderer: 'area',
 		stroke: true,

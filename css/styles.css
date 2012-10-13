@@ -21,10 +21,19 @@
 		color: white;
 
 	}
+	.icon_container{
+		padding-right: 30px;	
+	}
 	.icon{
 		font: 42px 'ModernPictogramsNormal', Arial, sans-serif;
 		float: right;
-		margin-right: 50px;
+		padding-right: 65px;
+		padding-top: 10px;
+	}
+	.icon2{
+		font: 42px 'ModernPictogramsNormal', Arial, sans-serif;
+		float: right;
+		padding-right: 28px;
 		padding-top: 10px;
 	}
 	#map_canvas img {
@@ -37,7 +46,7 @@
 		background: url('../img/logo.png');
 		height:65px;
 		width: 188px;
-	float: left;
+		float: left;
 
 	}
 	.marginblock{
@@ -45,9 +54,9 @@
 	}
 	.picture{
 		background: url('../img/pic.png');
-		height:165px;
-		width: 163px;
-		background-size: 165px 163px;
+		height:180px;
+		width: 180px;
+		background-size: 180px 180px;
 		float: left;
 	}
 	.stats{
@@ -57,14 +66,32 @@
 	.topbar{
 		background: url('../img/topbar.png');
 		height:45px;
-		width: 909px;
+		width: 900px;
+	}
+		.topbarmap{
+		background: url('../img/topbarmap.png');
+		height:45px;
+		width: 900px;
+	}
+		.topbarphoto{
+		background: url('../img/topbarphoto.png');
+		height:45px;
+		width: 900px;
 	}
 	.graph{
 
 	background: url('../img/paper.jpg');
-		height: 100px;
-		width: 909px;
-		padding-top: 20px;
+	height: 100px;
+	width: 900px;
+	padding-top: 15px;
+
+	}
+	.gallery{
+
+	background: url('../img/paper.jpg');
+
+	width: 900px;
+
 
 	}
 	footer{
