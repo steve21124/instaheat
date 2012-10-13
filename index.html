@@ -16,6 +16,10 @@
 	<!-- Your styles -->
 	<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" />
 
+	<link type="text/css" rel="stylesheet" href="css/graph.css">
+	<link type="text/css" rel="stylesheet" href="css/detail.css">
+	<link type="text/css" rel="stylesheet" href="css/legend.css">
+
 	<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
 	<script type="text/javascript" src="js/css3-mediaqueries.js"></script>
 
@@ -35,11 +39,22 @@
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
     <script src="map.js"></script>
 
+	<style>
+		.rickshaw_graph .detail .x_label { display: none }
+		.rickshaw_graph .detail .item { line-height: 1.4; padding: 0.5em }
+		.detail_swatch { float: right; display: inline-block; width: 10px; height: 10px; margin: 0 4px 0 0 }
+		.rickshaw_graph .detail .date { color: #a0a0a0 }
+	</style>
+
 </head>
 
 
+<<<<<<< HEAD
 <body>
 
+=======
+<body onload="initialize()">
+>>>>>>> stats UI
 <div class="container">
 
 	<!--header -->
@@ -73,7 +88,16 @@
 		<div class="tencol ">
 			<div class="stats">
 				<div class="topbar"></div>
-				<div class="graph"><div id="chart"></div></div>
+				<div class="graph">
+					<div id="chart_container">
+						<div id="chart"></div>
+						<div id="legend_container">
+							<div id="smoother" title="Smoothing"></div>
+							<div id="legend"></div>
+						</div>
+						<div id="slider"></div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="onecol last"></div>
@@ -82,6 +106,7 @@
 	<footer>
 
 	</footer>
+<<<<<<< HEAD
 	<script>
 
 	var graph = new Rickshaw.Graph( {
@@ -109,6 +134,49 @@
 	graph.renderer.unstack = true;
 	graph.render();
 	</script>
+=======
+<script>
+
+// set up our data series with 50 random data points
+
+var seriesData = [ [], [], [] ];
+var random = new Rickshaw.Fixtures.RandomData(150);
+
+for (var i = 0; i < 150; i++) {
+	random.addData(seriesData);
+}
+
+// instantiate our graph!
+
+var graph = new Rickshaw.Graph( {
+	element: document.getElementById("chart"),
+	width: 909,
+	height: 100,
+	renderer: 'area',
+	stroke: true,
+	series: [
+		{
+			color: "#4a81b9",
+			data: seriesData[0],
+			name: 'Pictures'
+		},
+	]
+} );
+
+graph.render();
+
+var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+	graph: graph,
+	formatter: function(series, x, y) {
+		var date = '<span class="date">' + new Date(x * 1000).toUTCString() + '</span>';
+		var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
+		var content = swatch + series.name + ": " + parseInt(y) + '<br>' + date;
+		return content;
+	}
+} );
+
+</script>
+>>>>>>> stats UI
 
 </body>
 <script>

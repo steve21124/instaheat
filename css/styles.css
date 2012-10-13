@@ -21,9 +21,9 @@
 		background-size: 165px 163px;
 	}
 	.stats{
-		background: white;
-		margin-top:20px;
-		width: 909px;
+		margin-top: 20px;
+
+		margin-top: 20px;
 	}
 	.topbar{
 		background: url('../img/topbar.png');
@@ -31,7 +31,12 @@
 		width: 909px;
 	}
 	.graph{
-		padding:10px 0 0 10px ;
+
+	background: url('../img/paper.jpg');
+		height: 100px;
+		width: 909px;
+		padding-top: 20px;
+
 	}
 	footer{
 		height: 60px;
