@@ -45,13 +45,19 @@ function getPics (lat, lon, dist_km, count, callback, timestamp) {
 	function getMore() {
 	    getPicsBefore(lat, lon, dist_km, oldest, function (data) {
 		//console.log(data);
-		oldest = data.data[data.data.length-1].created_time - 1;
-		ret = ret.concat(data.data);
-		//console.log(ret);
-		if(ret.length < count)
-		    getMore();
-		else
+		try {
+		    // if there is no data then this crashes and falls back to the callback
+		    oldest = data.data[data.data.length-1].created_time - 1;
+		    ret = ret.concat(data.data);
+		    //console.log(ret);
+		    if(ret.length < count)
+			getMore();
+		    else
+			callback(ret);
+		}catch(e) {
 		    callback(ret);
+		}
+
 	    });
 	}
 	getMore();
@@ -63,9 +69,9 @@ function getPics (lat, lon, dist_km, count, callback, timestamp) {
 // hold a catch of data that has been already returned
 
 Array.prototype.remove = function(from, to) {
-  var rest = this.slice((to || from) + 1 || this.length);
-  this.length = from < 0 ? this.length + from : from;
-  return this.push.apply(this, rest);
+    var rest = this.slice((to || from) + 1 || this.length);
+    this.length = from < 0 ? this.length + from : from;
+    return this.push.apply(this, rest);
 };
 
 var cache = JSON.parse(fs.readFileSync('cache_data.json').toString());
@@ -139,7 +145,7 @@ function search_cache (lat, lon, dist_km) {
 	    if(distance(cache[i-d].location, target) < dist_km) {
 		ret.push(cache[i-d]);
 	    }
-	    run  = true;
+	    run	 = true;
 	}
 	d++;
 	if(!run) break;
@@ -156,13 +162,13 @@ app.get('/', function(req, res) {
 });
 
 
-app.get('/test', function (req, res) {
+app.get('/_test', function (req, res) {
     getPics(37.483, -122.15, 10, 10, function (c) {
 	res.end(JSON.stringify(c));
     });
 });
 
-app.get('/cache', function (req, res) {
+app.get('/_cache', function (req, res) {
     res.end('making cache');
     getPics(37.483, -122.15, 10, 10, function (c) {
 	cache = cache.concat(c);
