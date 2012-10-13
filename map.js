@@ -23,12 +23,12 @@ function getLocation()
   }
 
 // Initializes and renders the heat map.
-function initialize(pointsData) {
+function initialize(pointsData, longlat_pos) {
     //console.log(pointsData)
     // the options of the heat map
     var mapOptions = {
         zoom: 10,
-        center: shenZhen,
+        center: new google.maps.LatLng(longlat_pos.latitude, longlat_pos.longitude),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
@@ -54,7 +54,7 @@ function makeRequest(position)
   dataType: "json",
   success: function (d) {
       console.log(d);
-      initialize(getCoord(d));
+      initialize(getCoord(d), position.coords);
       processImages(d);
   },
   error: function () {
