@@ -95,7 +95,9 @@ function loadHeatMap(mapPts, lat, lon, toPan) {
     console.log("in loadHeatMap");
     var pointArray = new google.maps.MVCArray(mapPts);
     var heatmap = new google.maps.visualization.HeatmapLayer({
-       data: pointArray
+        data: pointArray,
+        radius: 40,
+        dissipating: true
     });
     heatmap.setMap(map);
     if (toPan) map.panTo(new google.maps.LatLng(lat, lon));
