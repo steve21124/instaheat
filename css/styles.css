@@ -12,7 +12,9 @@
     font-style: normal;
 
 	}
-
+	 #search_address,button{
+		float:right;
+	}
  	li{
 		list-style-type: none;
 	}
@@ -90,10 +92,7 @@
 	.gallery{
 
 	background: url('../img/paper.jpg');
-
 	width: 900px;
-
-
 	}
 	footer{
 		height: 60px;
