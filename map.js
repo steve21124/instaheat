@@ -38,11 +38,16 @@ function toMapPtsFrsq(points) {
     return mapPts;
 }
 
+function firstChannel(loc) {
+    console.log("in firstChannel");
+    channelLoc(loc, 1);
+}
+
 // Fetches raw data containing points info.
 function getLocation() {
     console.log("in getLocation");
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(channelLoc);
+        navigator.geolocation.getCurrentPosition(firstChannel);
     } else {
         alert("Oops. Looks like your location can't be fetched.");
     }
@@ -86,19 +91,19 @@ function initialize() {
 }
 
 // Shifts center and loads the heat map.
-function loadHeatMap(mapPts, lat ,lon) {
+function loadHeatMap(mapPts, lat, lon, toPan) {
     console.log("in loadHeatMap");
     var pointArray = new google.maps.MVCArray(mapPts);
     var heatmap = new google.maps.visualization.HeatmapLayer({
        data: pointArray
     });
     heatmap.setMap(map);
-    map.panTo(new google.maps.LatLng(lat, lon));
+    if (toPan) map.panTo(new google.maps.LatLng(lat, lon));
 }
 
 // Makes an ajax request to browser to retrieve user's location, and channels
 // it to loadHeatMap(), adjusting the map.
-function channelLoc(position) {
+function channelLoc(position, toPan) {
     console.log("in channelLoc");
     $.ajax({
         url: "/data?lon=" + position.coords.longitude + "&lat=" +
@@ -108,7 +113,7 @@ function channelLoc(position) {
             computeHist(d);
 
             loadHeatMap(toMapPts(d), position.coords.latitude,
-                        position.coords.longitude);
+                        position.coords.longitude, toPan);
             processImages(d);
         },
         error: function () {
@@ -205,7 +210,7 @@ function search() {
                 var loc = results[0].geometry.location;
                 var newCenter = {coords: {latitude: loc.lat(), longitude: loc.lng()}};
                 console.log(newCenter);
-                channelLoc(newCenter);
+                firstChannel(newCenter);
                 // use loc.lat(), loc.lng()
             } 
             else {

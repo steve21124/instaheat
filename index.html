@@ -138,7 +138,7 @@ $('#chart_container').empty();
   );
 }
 function plotgraph(graphdata){
-	console.log(graphdata.length);
+	//console.log(graphdata.length);
 	clearGraph();
 	var graph = new Rickshaw.Graph( {
 		element: document.getElementById("chart"),
@@ -187,27 +187,8 @@ $('#search_address').keypress(function(event){
     $('#search_button').click();
   }
 });
-var addressField = document.getElementById('search_address');
-var geocoder = new google.maps.Geocoder();
-function search() {
-    geocoder.geocode(
-        {'address': addressField.value}, 
-        function(results, status) { 
-            if (status == google.maps.GeocoderStatus.OK) { 
-                var loc = results[0].geometry.location;
-                var newCenter = {coords: {longitude: loc.lng(), latitude: loc.lat()}};
-                channelLoc(newCenter);
-                
-                //console.log(loc);
-            } 
-            else {
-                alert("Not found: " + status); 
-            } 
-        }
-    );
-};
-</script>
 
+</script>
 
 </body>
 <script>
