@@ -33,11 +33,23 @@ function initialize() {
     };
 
     map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+    var nowTime, lastTime = 0, newCenter;
+    google.maps.event.addListener(map, 'bounds_changed', function() {
+        nowTime = new Date().getTime();
+        if (nowTime - lastTime > 1500) {
+            newCenter = {coords: {latitude: map.getCenter().lat(), longitude: map.getCenter().lng()}};
+            channelLoc(newCenter)
+        }
+        lastTime = new Date().getTime();
+    });
+
     getLocation();
 }
 
 // Shifts center and loads the heat map.
 function loadHeatMap(mapPts, lat ,lon) {
+    console.log("in loadHeatMap");
     var pointArray = new google.maps.MVCArray(mapPts);
     var heatmap = new google.maps.visualization.HeatmapLayer({
        data: pointArray
@@ -47,14 +59,15 @@ function loadHeatMap(mapPts, lat ,lon) {
 }
 
 // Makes an ajax request to browser to retrieve user's location, and channels
-// it to loadHeatMap().
+// it to loadHeatMap(), adjusting the map.
 function channelLoc(position) {
+    console.log("in channelLoc");
     $.ajax({
         url: "/data?lon=" + position.coords.longitude + "&lat=" +
             position.coords.latitude,//"&dist="dist
         dataType: "json",
         success: function (d) {
-            console.log(d);
+            //console.log(d);
             loadHeatMap(toMapPts(d), position.coords.latitude,
                         position.coords.longitude);
             processImages(d);
@@ -72,7 +85,7 @@ function processImages(data) {
     });
    // console.log(data);
     $(".picture").each(function () {
-        if(i > data.length) return;
-        $(this).css("background-image", "url("+data[i++].images.standard_resolution.url+")");
+        if (i > data.length || data.length == 0) return;
+        $(this).css("background-image", "url(" + data[i++].images.standard_resolution.url + ")");
     });
 }
