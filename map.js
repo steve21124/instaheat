@@ -96,7 +96,7 @@ function loadHeatMap(mapPts, lat, lon, toPan) {
     var pointArray = new google.maps.MVCArray(mapPts);
     var heatmap = new google.maps.visualization.HeatmapLayer({
         data: pointArray,
-        radius: 25,
+        radius: 20,
         dissipating: true
     });
     heatmap.setMap(map);
@@ -112,10 +112,11 @@ function channelLoc(position, toPan) {
             position.coords.latitude,//"&dist="dist
         dataType: "json",
         success: function (d) {
+            console.log("Data retrieved: ", d.length);
+            computeHist(d);
 
             loadHeatMap(toMapPts(d), position.coords.latitude,
                         position.coords.longitude, toPan);
-            computeHist(d);
             processImages(d);
         },
         error: function () {
@@ -131,11 +132,9 @@ function channelLocFrsq(position) {
             position.coords.latitude,//"&dist="dist
         dataType: "json",
         success: function (d) {
-            
-
+            computeHist(d);
             loadHeatMap(toMapFrsqPts(d), position.coords.latitude,
                         position.coords.longitude);
-            computeHist(d);
             processImages(d);
         },
         error: function () {
@@ -157,22 +156,19 @@ function processImages(data) {
     });
 }
 function computeHist(data){
-    console.log("compute hist");
-    var nb_points=10, time= 3600*24;
+    console.log("in computeHist()");
+    var nb_points=25, time= 3600*24;
     var ts = Math.round((new Date()).getTime() / 1000);
     var ratio;
     var array=[];
     var i=0;
     graphdata = [];
-    var bounds = map.getBounds();
     while (i<nb_points) {array[i] = 0;i++;}
 
-    for (var i = 0;i < all_points.length ; i++) {
-        if(bounds.contains(all_points[i][0] )) {
-            if((ts - all_points[i][1].created_time)< (time)){
-                ratio = Math.floor((ts - all_points[i][1].created_time)/(time)*nb_points);
-                array[ratio]+=1;
-            }
+    for (var i = 0;i < data.length ; i++) {
+        if((ts - data[i].created_time)< (time)){
+            ratio = Math.floor((ts - data[i].created_time)/(time)*nb_points);
+            array[ratio]+=1;
         }
     };
     for (var i = 0;i < nb_points ; i++) {
