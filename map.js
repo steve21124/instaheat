@@ -68,7 +68,6 @@ function channelLoc(position) {
             position.coords.latitude,//"&dist="dist
         dataType: "json",
         success: function (d) {
-
             computeHist(d);
 
             loadHeatMap(toMapPts(d), position.coords.latitude,

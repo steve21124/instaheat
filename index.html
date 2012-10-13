@@ -35,10 +35,15 @@
 
 
 
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
     <!-- js for the maps-->
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
     <script src="map.js"></script>
-
+    <script>
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
+    </script>
 	<style>
 		.rickshaw_graph .detail .x_label { display: none }
 		.rickshaw_graph .detail .item { line-height: 1.4; padding: 0.5em }
@@ -55,25 +60,33 @@
 
 <div class="container">
 
-	<!--header -->
-	<div class="row">
-		<div class="onecol"></div>
-		<div class="tencol ">
-			<div class="logo"></div>
-		</div>
-		<div class="onecol last"></div>
-	</div>
-
 	<!--maps -->
 	<div class="row">
 		<div class="onecol"></div>
-		<div class="eightcol marginblock">
-			 <div id="map_canvas" style="height: 495px; width: 746px;"></div>
+		<div class="tencol ">
+
+
+		<div id="tabs">
+		    <ul>
+		    	<li><div class="logo"></div></li>
+		        <li><a href="#tabs-1" class="icon">w</a></li>
+		        <li><a href="#tabs-2" class="icon">A</a></li>
+		        <div style="clear: both;"></div>
+
+		    </ul>
+		    <div id="tabs-1">
+		        <p><div id="map_canvas" style="height: 495px; width: 909px;"></div></p>
+		    </div>
+		    <div id="tabs-2">
+		        <div class="picture"></div><div class="picture"></div><div class="picture"></div>
+		    </div>
+
 		</div>
-		<div class="twocol scroll">
-			<div class="picture"></div>
-			<div class="picture"></div>
-			<div class="picture"></div>
+ 
+			<!-- <div id="map_canvas" style="height: 495px; width: 746px;"></div>-->
+	
+			<!--<div class="picture"></div>-->
+
 		</div>
 		<div class="onecol last"></div>
 	</div>
@@ -108,16 +121,8 @@
 
 <script>
 function plotgraph(graphdata){
-	// set up our data series with 50 random data points
 	
-	// var seriesData = [ [], [], [] ];
-	// var random = new Rickshaw.Fixtures.RandomData(150);
-
-	// for (var i = 0; i < 150; i++) {
-	// 	random.addData(seriesData);
-	// }
-
-	// instantiate our graph!
+	
 
 	var graph = new Rickshaw.Graph( {
 		element: document.getElementById("chart"),
@@ -129,22 +134,22 @@ function plotgraph(graphdata){
 			{
 				color: "#4a81b9",
 				data: graphdata,
-				name: 'Number of pictures'
+				name: 'Pictures'
 			},
 		]
 	} );
 
 	graph.render();
 
-	var hoverDetail = new Rickshaw.Graph.HoverDetail( {
-		graph: graph,
-		formatter: function(series, x, y) {
-			var date = '<span class="date"><br/></span>';
-			var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
-			var content = series.name + ": " + parseInt(y);
-			return content;
-		}
-	} );
+	// var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+	// 	graph: graph,
+	// 	formatter: function(series, x, y) {
+	// 		var date = '<span class="date">' + new Date(x * 1000).toUTCString() + '</span>';
+	// 		var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
+	// 		var content = swatch + series.name + ": " + parseInt(y) + '<br>' + date;
+	// 		return content;
+	// 	}
+	// } );
 }
 </script>
 
