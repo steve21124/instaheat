@@ -1,8 +1,8 @@
 Instaheat
 =========
 
-Instaheat maps the nearby, interesting hot stuff on Instagram, Flickr,
-and Foursquare into a sexy heat map. Go to the red zones, have fun, be awesome.
+Instaheat maps the nearby, interesting hot pictures on Instagram and Flickr,
+into a sexy heat map. Go to the red zones, have fun, and be awesome.
 
 FB Battle of the Bay Hackathon hack, proudly presented by Cal Bears.
 
