@@ -24,7 +24,7 @@ function getLocation()
 
 // Initializes and renders the heat map.
 function initialize(pointsData) {
-    console.log(pointsData)
+    //console.log(pointsData)
     // the options of the heat map
     var mapOptions = {
         zoom: 10,
@@ -53,11 +53,27 @@ function makeRequest(position)
   url: "/data?lon=" + position.coords.longitude + "&lat=" + position.coords.latitude,//"&dist="dist
   dataType: "json",
   success: function (d) {
+      console.log(d);
       initialize(getCoord(d));
+      processImages(d);
   },
   error: function () {
       console.log("ERROR");
-  } 
+  }
     });
 
   }
+
+
+
+function processImages(data) {
+    var i = 0;
+    data.sort(function (a,b) {
+	return b.likes.count - a.likes.count;
+    });
+    console.log(data);
+    $(".picture").each(function () {
+	if(i > data.length) return;
+	$(this).css("background-image", "url("+data[i++].images.standard_resolution.url+")");
+    });
+}

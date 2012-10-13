@@ -26,7 +26,7 @@ function getPicsBefore (lat, lon, dist_km, before,  callback) {
 	    buffer += buf.toString();
 	});
 	ev.on('end', function () {
-	    var j = {};
+	    var j = [];
 	    try {
 		j = JSON.parse(buffer);
 	    } catch(e) {}
@@ -35,6 +35,7 @@ function getPicsBefore (lat, lon, dist_km, before,  callback) {
 	});
     }).on('error', function (err) {
 	console.log('err', err);
+	callback([]);
     });
 }
 
@@ -148,7 +149,7 @@ function search_cache (lat, lon, dist_km) {
 	    run	 = true;
 	}
 	d++;
-	if(!run) break;
+	if(!run || ret.length > 200) break;
     }
     console.log("Returing data length: ", ret.length);
     return ret;
