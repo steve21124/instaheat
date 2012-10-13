@@ -1,29 +1,32 @@
+// returns google maps points from a list of raw points
+// .lon: longitude
+// .lat: latitude
+function getCoord(points) {
+    var mapPts = [];
+    for (var i = 0; i < points.length; ++i) {
+        mapPts.push(new google.maps.LatLng(points[i].lon, points[i].lat));
+    }
+    return mapPts;
+}
+
+// fetch raw data containing points info
+function fetchRawPts() {
+}
+
 function initialize() {
 
     var sanFrancisco = new google.maps.LatLng(37.774546, -122.433523);
 
     // the options of the heat map
     var mapOptions = {
-        zoom: 13,
+        zoom: 10,
         center: sanFrancisco,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    // coordinates of points; toy example
-    // should fetch & parse json
-    var pointsData = [
-        new google.maps.LatLng(37.782551, -122.445368),
-        new google.maps.LatLng(37.782745, -122.444586),
-        new google.maps.LatLng(37.782842, -122.443688),
-        new google.maps.LatLng(37.782919, -122.442815),
-        new google.maps.LatLng(37.782992, -122.442112),
-        new google.maps.LatLng(37.783100, -122.441461),
-        new google.maps.LatLng(37.783206, -122.440829),
-        new google.maps.LatLng(37.783273, -122.440324),
-        new google.maps.LatLng(37.783316, -122.440023),
-        new google.maps.LatLng(37.783357, -122.439794),
-        new google.maps.LatLng(37.783371, -122.439687)
-    ]
+    // toy
+    // var pointsData = getCoord([{'a':1, lon: 22, lat:112}, {lon:22, lat:110}]); 
+    var pointsData = getCoord(fetchRawPts());
 
     var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
