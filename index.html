@@ -60,7 +60,6 @@
 
 
 <div class="container">
-
 <input type="text" id="search_address" value=""/>
 <button onclick="search();">Search</button>
 
@@ -129,7 +128,7 @@
 
 <script>
 function clearGraph() {
-  $('#legend').empty();
+
   $('#chart_container').html(
     '<div id="chart"></div><div id="timeline"></div><div id="slider"></div>'
   );
@@ -151,15 +150,7 @@ function plotgraph(graphdata){
 			},
 		]
 	} );
-var axes = new Rickshaw.Graph.Axis.Time( {
-	graph: graph
-} );
-var y_axis = new Rickshaw.Graph.Axis.Y( {
-        graph: graph,
-        orientation: 'left',
-        tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
-        element: document.getElementById('y_axis'),
-} );
+
 
 	graph.render();
 
@@ -168,20 +159,24 @@ var hoverDetail = new Rickshaw.Graph.HoverDetail( {
 	graph: graph
 } );
 
-var legend = new Rickshaw.Graph.Legend( {
-	graph: graph,
-	element: document.getElementById('legend')
-
-} );
-
-var shelving = new Rickshaw.Graph.Behavior.Series.Toggle( {
-	graph: graph,
-	legend: legend
-} );
-
-
-axes.render();
 }
+var addressField = document.getElementById('search_address');
+var geocoder = new google.maps.Geocoder();
+function search() {
+    geocoder.geocode(
+        {'address': addressField.value}, 
+        function(results, status) { 
+            if (status == google.maps.GeocoderStatus.OK) { 
+                var loc = results[0].geometry.location;
+                console.log(loc);
+                // use loc.lat(), loc.lng()
+            } 
+            else {
+                alert("Not found: " + status); 
+            } 
+        }
+    );
+};
 </script>
 
 
