@@ -5,12 +5,18 @@ var map, heatmap, pointArray;
 var graphdata=[ ];
 //var testPointsData = toMapPts([{location: {longitude: 22.489065, latitude: 113.912812}}, {location: {longitude: 22.485591, latitude: 113.917026}}]); // my home ;)
 
+// already loaded points in google maps
+var loaded_points=[];
+
 // Transforms google maps points from a list of raw points.
 function toMapPts(points) {
     var mapPts = [];
     for (var i = 0; i < points.length; ++i) {
         //console.log(points[i].location.longitude, points[i].location.latitude);
-        mapPts.push(new google.maps.LatLng(points[i].location.latitude, points[i].location.longitude));
+        if(loaded_points.indexOf(points[i].id) == -1) { // check if the point was already loaded into google maps
+	    mapPts.push(new google.maps.LatLng(points[i].location.latitude, points[i].location.longitude));
+	    loaded_points.push(points[i].id);
+	}
     }
     return mapPts;
 }
