@@ -155,6 +155,16 @@ function plotgraph(graphdata){
 		]
 	} );
 
+	var time = new Rickshaw.Fixtures.Time();
+	var seconds = time.unit('hours');
+
+	var xAxis = new Rickshaw.Graph.Axis.Time({
+	    graph: graph,
+	    timeUnit: hours
+	});
+
+	xAxis.render();
+
 
 	graph.render();
 
