@@ -1,9 +1,11 @@
 var sanFrancisco = new google.maps.LatLng(37.774546, -122.433523);
 var shenZhen = new google.maps.LatLng(22.562025, 114.029846);
+var berkeley = new google.maps.LatLng(37.875527, -122.258639);
 var map, heatmap, pointArray;
+//var testPointsData = toMapPts([{location: {longitude: 22.489065, latitude: 113.912812}}, {location: {longitude: 22.485591, latitude: 113.917026}}]); // my home ;)
 
-// Returns google maps points from a list of raw points.
-function getCoord(points) {
+// Transforms google maps points from a list of raw points.
+function toMapPts(points) {
     var mapPts = [];
     for (var i = 0; i < points.length; ++i) {
         //console.log(points[i].location.longitude, points[i].location.latitude);
@@ -13,67 +15,64 @@ function getCoord(points) {
 }
 
 // Fetches raw data containing points info.
-function getLocation()
-  {
-  if (navigator.geolocation)
-    {
-    navigator.geolocation.getCurrentPosition(makeRequest);
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(channelLoc);
+    } else {
+        alert("CRASH! getLocation")
     }
-  else{alert("CRASH! getLocation")}
-  }
+}
 
-// Initializes and renders the heat map.
-function initialize(pointsData, longlat_pos) {
-    //console.log(pointsData)
-    // the options of the heat map
+// Initializes the map.
+function initialize() {
+    var center = berkeley;
     var mapOptions = {
-        zoom: 10,
-        center: new google.maps.LatLng(longlat_pos.latitude, longlat_pos.longitude),
+        zoom: 13,
+        center: center,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    //var pointsData = getCoord([{lon: 22.489065, lat: 113.912812}, {lon: 22.485591, lat: 113.917026}]); // my home ;)
-    //var pointsData = getCoord(fetchRawPts());
-
     map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-    pointArray = new google.maps.MVCArray(pointsData);
-    heatmap = new google.maps.visualization.HeatmapLayer({
-        data: pointArray
-    });
-
-    heatmap.setMap(map);
+    getLocation();
 }
 
-// the Function that makes an ajax request to the node server
-function makeRequest(position)
-  {
-  console.log(position.coords.longitude)
-  // the 0 image is the newest image
-  $.ajax({
-  url: "/data?lon=" + position.coords.longitude + "&lat=" + position.coords.latitude,//"&dist="dist
-  dataType: "json",
-  success: function (d) {
-      console.log(d);
-      initialize(getCoord(d), position.coords);
-      processImages(d);
-  },
-  error: function () {
-      console.log("ERROR");
-  }
+// Shifts center and loads the heat map.
+function loadHeatMap(mapPts, lat ,lon) {
+    var pointArray = new google.maps.MVCArray(mapPts);
+    var heatmap = new google.maps.visualization.HeatmapLayer({
+       data: pointArray
     });
+    heatmap.setMap(map);
+    map.panTo(new google.maps.LatLng(lat, lon));
+}
 
-  }
-
-
+// Makes an ajax request to browser to retrieve user's location, and channels
+// it to loadHeatMap().
+function channelLoc(position) {
+    $.ajax({
+        url: "/data?lon=" + position.coords.longitude + "&lat=" +
+            position.coords.latitude,//"&dist="dist
+        dataType: "json",
+        success: function (d) {
+            console.log(d);
+            loadHeatMap(toMapPts(d), position.coords.latitude,
+                        position.coords.longitude);
+            processImages(d);
+        },
+        error: function () {
+            console.log("ERROR");
+        }
+    });
+}
 
 function processImages(data) {
     var i = 0;
     data.sort(function (a,b) {
-	return b.likes.count - a.likes.count;
+        return b.likes.count - a.likes.count;
     });
-    console.log(data);
+   // console.log(data);
     $(".picture").each(function () {
-	if(i > data.length) return;
-	$(this).css("background-image", "url("+data[i++].images.standard_resolution.url+")");
+        if(i > data.length) return;
+        $(this).css("background-image", "url("+data[i++].images.standard_resolution.url+")");
     });
 }
