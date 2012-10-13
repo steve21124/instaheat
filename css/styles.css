@@ -1,7 +1,9 @@
 /* ============================== */
 /* ! Layout for desktop version   */
 /* ============================== */
-
+	#map_canvas img {
+		max-width: none;
+	}
 	body {
 		background:url('../img/bg.png');;
 	}
