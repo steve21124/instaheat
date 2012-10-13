@@ -12,6 +12,27 @@
     font-style: normal;
 
 	}
+	input {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	    border:2px solid #dadada;
+	    border-radius:7px;
+	    font-size:17px;
+	    padding:2px; 
+	    color: grey;
+	}
+
+	input:focus { 
+	    outline:none;
+	    border-color:#9ecaed;
+	    box-shadow:0 0 10px #9ecaed;
+	}
+	#search_button{
+		visibility:hidden;
+	}
+	#search_address{
+		margin-top: 8px;
+		margin-right: 8px;
+	}
 	 #search_address,button{
 		float:right;
 	}
