@@ -2,6 +2,7 @@ var sanFrancisco = new google.maps.LatLng(37.774546, -122.433523);
 var shenZhen = new google.maps.LatLng(22.562025, 114.029846);
 var berkeley = new google.maps.LatLng(37.875527, -122.258639);
 var map, heatmap, pointArray;
+var graphdata=[ ];
 //var testPointsData = toMapPts([{location: {longitude: 22.489065, latitude: 113.912812}}, {location: {longitude: 22.485591, latitude: 113.917026}}]); // my home ;)
 
 // Transforms google maps points from a list of raw points.
@@ -67,7 +68,12 @@ function channelLoc(position) {
             position.coords.latitude,//"&dist="dist
         dataType: "json",
         success: function (d) {
+<<<<<<< HEAD
             //console.log(d);
+=======
+            console.log(d);
+            computeHist(d);
+>>>>>>> histogram working
             loadHeatMap(toMapPts(d), position.coords.latitude,
                         position.coords.longitude);
             processImages(d);
@@ -88,4 +94,24 @@ function processImages(data) {
         if (i > data.length || data.length == 0) return;
         $(this).css("background-image", "url(" + data[i++].images.standard_resolution.url + ")");
     });
+}
+function computeHist(data){
+    var nb_points=10, time= 3600*24;
+    var ts = Math.round((new Date()).getTime() / 1000);
+    var ratio;
+    var array=[];
+    var i=0;
+    while (i<nb_points) {array[i] = 0;i++;}
+
+    for (var i = 0;i < data.length ; i++) {
+        if((ts - data[i].created_time)< (time)){
+            ratio = Math.floor((ts - data[i].created_time)/(time)*nb_points);
+            array[ratio]+=1;
+        }
+    };
+    for (var i = 0;i < nb_points ; i++) {
+        graphdata.push({x: i,y: array[i]});
+    };
+    console.log(graphdata);
+    plotgraph(graphdata);
 }
