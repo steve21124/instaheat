@@ -159,3 +159,24 @@ function updateImages() {
 $(function () {
     $(".icon2").click(updateImages);
 });
+
+function search() {
+    var addressField = document.getElementById('search_address');
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode(
+        {'address': addressField.value}, 
+        function(results, status) { 
+            if (status == google.maps.GeocoderStatus.OK) { 
+                var loc = results[0].geometry.location;
+                var newCenter = {coords: {latitude: loc.lat(), longitude: loc.lng()}};
+                console.log(newCenter);
+                channelLoc(newCenter);
+                // use loc.lat(), loc.lng()
+            } 
+            else {
+                alert("Not found: " + status); 
+            } 
+        }
+    );
+};
+
