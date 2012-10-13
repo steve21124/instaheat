@@ -12,8 +12,9 @@
     font-style: normal;
 
 	}
+
 	input {
-   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	    border:2px solid #dadada;
 	    border-radius:7px;
 	    font-size:17px;
@@ -52,6 +53,13 @@
 		float: right;
 		padding-right: 65px;
 		padding-top: 10px;
+		border-style:0;
+	}
+	.icon:focus{
+		outline: 0;
+	}
+		.icon2:focus{
+		outline: 0;
 	}
 	.icon2{
 		font: 42px 'ModernPictogramsNormal', Arial, sans-serif;
@@ -63,7 +71,9 @@
 		max-width: none;
 	}
 	body {
-		background:url('../img/bg.png');;
+		background:url('../img/bg.png');
+		background-repeat: no-repeat;
+		background-color: white;
 	}
 	.logo{
 		background: url('../img/logo.png');
@@ -75,12 +85,15 @@
 	.marginblock{
 		margin-right: 0px;
 	}
+	.picture_container{
+}
 	.picture{
-		background: url('../img/pic.png');
-		height:180px;
-		width: 180px;
-		background-size: 180px 180px;
+		height:225px;
+		width: 225px;
+	
 		float: left;
+
+
 	}
 	.stats{
 		margin-top: 20px;
