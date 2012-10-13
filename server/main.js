@@ -5,10 +5,10 @@ var fs = require('fs');
 
 var instaToken = "235597193.173372b.50bdb5394d7b4063b8147f10b928532d";
 
-function getPicsBefore (lat, lon, dist_km, before,  callback) {
+function getPicsBefore (lat, lon, dist_km, before, callback) {
     var url = "https://api.instagram.com/v1/media/search?lat="+lat+"&lng="+lon+"&distance="+(dist_km*1000);
-    if(before) url += "&max_timestamp="+before;
-    url += "&access_token="+instaToken; // +"&callback=?";
+    if (before) url += "&max_timestamp=" + before;
+    url += "&access_token=" + instaToken; // +"&callback=?";
     //console.log(url);
 
     // the 0 image is the newest image
@@ -21,21 +21,21 @@ function getPicsBefore (lat, lon, dist_km, before,  callback) {
       });*/
 
     https.get(url, function (ev) {
-	var buffer = "";
-	ev.on('data', function (buf) {
-	    buffer += buf.toString();
+        var buffer = "";
+        ev.on('data', function (buf) {
+            buffer += buf.toString();
 	});
-	ev.on('end', function () {
-	    var j = [];
-	    try {
-		j = JSON.parse(buffer);
-	    } catch(e) {}
-	    callback(j);
-	    //console.log(buffer);
-	});
+        ev.on('end', function () {
+            var j = [];
+            try {
+                j = JSON.parse(buffer);
+            } catch(e) {}
+            callback(j);
+            //console.log(buffer);
+        });
     }).on('error', function (err) {
-	console.log('err', err);
-	callback([]);
+        console.log('err', err);
+        callback([]);
     });
 }
 
@@ -43,29 +43,26 @@ function getPics (lat, lon, dist_km, count, callback, timestamp) {
     var ret=[];
     var oldest = timestamp || 0;
     (function (ret) {
-	function getMore() {
-	    getPicsBefore(lat, lon, dist_km, oldest, function (data) {
-		//console.log(data);
-		try {
-		    // if there is no data then this crashes and falls back to the callback
-		    oldest = data.data[data.data.length-1].created_time - 1;
-		    ret = ret.concat(data.data);
-		    //console.log(ret);
-		    if(ret.length < count)
-			getMore();
-		    else
-			callback(ret);
-		}catch(e) {
-		    callback(ret);
-		}
-
-	    });
-	}
+        function getMore() {
+            getPicsBefore(lat, lon, dist_km, oldest, function (data) {
+            //console.log(data);
+            try {
+                // if there is no data then this crashes and falls back to the callback
+                oldest = data.data[data.data.length-1].created_time - 1;
+                ret = ret.concat(data.data);
+                //console.log(ret);
+                if (ret.length < count)
+                    getMore();
+                else
+                    callback(ret);
+            } catch(e) {
+                callback(ret);
+            }
+            });
+        }
 	getMore();
     })(ret);
 }
-
-
 
 // hold a catch of data that has been already returned
 

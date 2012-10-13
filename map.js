@@ -19,7 +19,7 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(channelLoc);
     } else {
-        alert("CRASH! getLocation")
+        alert("Oops. Looks like your location can't be fetched.");
     }
 }
 
@@ -73,7 +73,7 @@ function channelLoc(position) {
             processImages(d);
         },
         error: function () {
-            console.log("ERROR");
+            console.log("ERROR: Unable to fetch Instagram data.");
         }
     });
 }
