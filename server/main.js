@@ -178,6 +178,7 @@ function flickrGet (lat, lon, dist_km, count, callback, timestamp) {
 	    try {
 		console.log(buffer);
 		var result = JSON.parse(buffer);
+
 		for(var i=0; i < result.photos.photo.length; i++) {
 		    j.push(flickr2insta(result.photos.photo[i]));
 		}
@@ -194,6 +195,48 @@ function flickrGet (lat, lon, dist_km, count, callback, timestamp) {
     });
 }
 
+function fourSquareConvert (ven) {
+
+    return {
+	"four_square": true,
+	"likes": { "count": ven.likes.count },
+	"location": ven.location
+
+    };
+}
+
+function fourSquareGet(lat, lon, dist_km, count, callback, timestamp) {
+    var ret=[];
+    if(count > 50) count = 50;
+    var url = "https://api.foursquare.com/v2/venues/search?ll="+lat+","+lon+"&intent=browse&limit="+count+"&radius="+(dist_km*1000)+"&oauth_token=IB2GQUQBVWSQERK2N2BDJQOJBA4BUJD4W35YJK0YHJM5N0HI";
+    https.get(url, function (ev) {
+	var buffer="";
+	ev.on('data', function (dat) {
+	    buffer += dat.toString();
+	});
+	ev.on('end', function () {
+	    var j =[];
+	    try {
+		console.log(buffer);
+		var dat = JSON.parse(buffer);
+
+		console.log(JSON.stringify(dat, null, 1));
+
+
+		for(var i=0;i<dat.response.venues.length; i++) {
+		    j.push(dat.response.venues[i]);
+		}
+	    }catch(e) {
+		console.log("4square error ", e);
+	    }
+	    callback(j);
+	});
+    }).on('error', function (err) {
+	console.log("4square error ", err);
+	callback([]);
+    });
+}
+
 // hold a catch of data that has been already returned
 
 Array.prototype.remove = function(from, to) {
@@ -202,8 +245,12 @@ Array.prototype.remove = function(from, to) {
     return this.push.apply(this, rest);
 };
 
-var cache = JSON.parse(fs.readFileSync('cache_data.json').toString());
-
+var cache = [];
+try {
+    cache = JSON.parse(fs.readFileSync('cache_data.json').toString());
+}catch(e) {
+    console.log("json reading file error", e);
+}
 function update_cache () {
     cache.sort(function (a,b) {
 	return a.location.longitude - b.location.longitude;
@@ -345,6 +392,20 @@ app.get('/data', function(req, res) {
 	    res.end(JSON.stringify(ret));
 	}
     ]);
+});
+
+app.get('/square', function(req, res) {
+    var lon = req.param('lon');
+    var lat = req.param('lat');
+    var dist = req.param('dist') || 3;
+    if(!lon || !lat) {
+	res.end("------ BAD REQUEST -------");
+	return;
+    }
+    var ret = [];
+    fourSquareGet(lat, lon, dist, 50, function (c) {
+	res.end(JSON.stringify(c));
+    });
 });
 
 
