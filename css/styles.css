@@ -137,10 +137,14 @@
 /* ! Layout for mobile version   */
 /* ============================= */
 
-@media handheld, only screen and (max-width: 767px) {
+@media handheld, only screen and (max-width: 1025px) {
 
 	body {
 
+	}
+	#search_address{
+		position: absolute;
+		right: 15px;
 	}
 
 }
@@ -156,5 +160,10 @@
 		background: url(logo2x.jpg) no-repeat;
 		background-size: 212px 303px;
 	}*/
+	#search_address{
+		position: absolute;
+		right: 15px;
+	}
+
 
 }
