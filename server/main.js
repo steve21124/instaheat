@@ -257,6 +257,7 @@ try {
 }catch(e) {
     console.log("json reading file error", e);
 }
+
 function update_cache () {
     cache.sort(function (a,b) {
 	return a.location.longitude - b.location.longitude;
@@ -387,12 +388,13 @@ app.get('/data', function(req, res) {
 		getPics(lat, lon, dist, count, this);
 	    },
 	    function () {
-		flickrGet(lat, lon, dist, count, this);
+		//flickrGet(lat, lon, dist, count, this);
+		this();
 	    }
 	],
 	function () {
-	    ret = ret.concat(this[0]).concat(this[1]);
-	    cache = cache.concat(this[0]).concat(this[1]);
+	    ret = ret.concat(this[0]);//.concat(this[1]);
+	    cache = cache.concat(this[0]);//.concat(this[1]);
 	    update_cache();
 	    save_cache();
 	    res.end(JSON.stringify(ret));
