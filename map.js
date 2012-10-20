@@ -194,7 +194,7 @@ function updateImages() {
     });
     $(".picture").remove();
     var target = $("#tabs-2");
-    for(var i = 0; i < imgs.length; i++) $('<a href="" class="picture_link"><div class="picture"></div></a>').appendTo(target);
+    for(var i = 0; i < imgs.length; i++) $('<a href="' +imgs[i].link+'" class="picture_link"><div class="picture"></div></a>').appendTo(target);
     var i=0;
     $(".picture").each(function () {
        var img= imgs[i++];
