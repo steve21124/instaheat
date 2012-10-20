@@ -160,21 +160,29 @@ function processImages(data) {
 function computeHist(data){
     console.log("in computeHist()");
     var nb_points=25, time= 3600*24;
-    var ts = Math.round((new Date()).getTime() / 1000);
+    var current_time = new Date();
+    var ts = Math.round(current_time.getTime() / 1000);
     var ratio;
     var array=[];
     var i=0;
     graphdata = [];
+
+    // nullify the array
     while (i<nb_points) {array[i] = 0;i++;}
 
+    // get the array filled with interpolated values
     for (var i = 0;i < data.length ; i++) {
         if((ts - data[i].created_time)< (time)){
             ratio = Math.floor((ts - data[i].created_time)/(time)*nb_points);
             array[ratio]+=1;
         }
     };
-    for (var i = 0;i < nb_points ; i++) {
-        graphdata.push({x: i*60,y: array[i]}); // we output x axis * 60 for plotttng purposes
+
+    // Push the array together with the timestamp to the graph data
+    for (var i = nb_points - 1; i > 0 ; i--) {
+        var timestamp =  (nb_points - i + current_time.getHours()) * 3600;
+        //console.log(timestamp);
+        graphdata.push({x: timestamp, y: array[i] } ); // we output x axis * 60 for plotttng purposes
     };
     //console.log("Graphdata =:", graphdata);
     plotgraph(graphdata);

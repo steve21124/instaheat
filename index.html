@@ -174,19 +174,20 @@ function plotgraph(graphdata){
 		element: document.getElementById("chart"),
 		width: 900,
 		height: 200,
-		renderer: 'area',
+		renderer: 'line',
 		stroke: true,
 		series: [
 			{
 				color: "#4a81b9",
 				data: graphdata,
-				name: 'Pictures'
+				name: 'Pictures Posted',
+				timeInterval: 100
 			},
 		]
 	} );
 
 	var time = new Rickshaw.Fixtures.Time();
-	var hours = time.unit('minute');
+	var hours = time.unit('hour');
 
 	var xAxis = new Rickshaw.Graph.Axis.Time({
 	    graph: graph,
