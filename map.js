@@ -198,9 +198,10 @@ function updateImages() {
     var i=0;
     $(".picture").each(function () {
        var img= imgs[i++];
+       var filter=img.filter;
         $(this).css("background-image", "url(" + img.images.standard_resolution.url + ")");
         
-        $(this).html('<div class="text">'+ img.filter+'</div>');
+        $(this).html('<div class="text">'+filter+'</div>');
     });
 }
 

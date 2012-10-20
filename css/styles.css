@@ -87,11 +87,15 @@
 		margin-right: 0px;
 	}
 	.picture{
-		height:225px;
-		width: 225px;
-		background-size: 225px 225px;
+		height: 270px;
+		width: 270px;
+		background-size: 270px 270px;
+		background-repeat: no-repeat;
 		float: left;
+		border: 7px solid rgba(255, 255, 255, 0.2);
 		position: relative;
+		margin-left: 10px;
+		margin-top: 10px;
 
 	}
 	.stats{
@@ -134,7 +138,7 @@
 		padding-bottom: 10px;
 		padding-top: 10px;
 		left: 0;
-		width: 215px;
+		width: 260px;
 		color: white;
 		background-color: rgba(0, 0, 0, 0.7);
 		font-size: 13px;	
