@@ -153,6 +153,8 @@ function processImages(data) {
     $(".picture").each(function () {
         if (i > data.length || data.length == 0) return;
         $(this).css("background-image", "url(" + data[i++].images.standard_resolution.url + ")");
+        $(this).html('<div class="text"></div>');
+
     });
 }
 function computeHist(data){
@@ -192,10 +194,13 @@ function updateImages() {
     });
     $(".picture").remove();
     var target = $("#tabs-2");
-    for(var i = 0; i < imgs.length; i++) $('<div class="picture"></div>').appendTo(target);
+    for(var i = 0; i < imgs.length; i++) $('<a href="" class="picture_link"><div class="picture"></div></a>').appendTo(target);
     var i=0;
     $(".picture").each(function () {
-	$(this).css("background-image", "url(" + imgs[i++].images.standard_resolution.url + ")");
+       var img= imgs[i++];
+        $(this).css("background-image", "url(" + img.images.standard_resolution.url + ")");
+        
+        $(this).html('<div class="text">'+ img.filter+'</div>');
     });
 }
 

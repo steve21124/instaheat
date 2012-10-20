@@ -86,14 +86,12 @@
 	.marginblock{
 		margin-right: 0px;
 	}
-	.picture_container{
-}
 	.picture{
 		height:225px;
 		width: 225px;
-	
+		background-size: 225px 225px;
 		float: left;
-
+		position: relative;
 
 	}
 	.stats{
@@ -125,10 +123,30 @@
 
 	}
 	.gallery{
-
-	background: url('../img/paper.jpg');
-	width: 900px;
+		background: url('../img/paper.jpg');
+		width: 900px;
 	}
+	.text{
+		display: none;
+		position: absolute;
+		bottom: 0;
+		padding-left: 10px;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		left: 0;
+		width: 215px;
+		color: white;
+		background-color: rgba(0, 0, 0, 0.7);
+		font-size: 13px;	
+	}
+	.picture_link{
+		display: inline-block;
+    	position: relative;
+	}
+	.picture_link:hover .text {
+		display: block;
+	}
+
 	footer{
 		height: 60px;
 
