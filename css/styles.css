@@ -12,7 +12,12 @@
     font-style: normal;
 
 	}
-
+	.ico{
+		font-family: 'ModernPictogramsNormal';
+	}
+	.like{
+		float:left;
+	}
 	input {
    		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	    border:2px solid #dadada;
