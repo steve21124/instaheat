@@ -243,6 +243,41 @@ function fourSquareGet(lat, lon, dist_km, count, callback, timestamp) {
     });
 }
 
+
+function extremeDistance (lat, lon, dist_km, max) {
+    var at = {
+	latitude: lat*1,
+	longitude: lon*1
+    };
+    var current = {
+	latitude: lat*1,
+	longitude: lon*1
+    };
+
+    return [at]; // return an array of all the places that should be check
+}
+
+function getArea (lat, lon, dist_km, count, callFun, max, callback) {
+    var check = extremeDistance(lat, lon, dist_km, max);
+    var count=1;
+    for(var i=0;i<check.length;i++) {
+	count++;
+	callFun(check[i].latitude, check[i].longitude, max, 100, function (data) {
+	    cache = cache.concat(data);
+	    if(!--count) {
+		update_cache();
+		save_cache();
+		callback();
+	    }
+	});
+    }
+    if(!--count) {
+	update_cache();
+	save_cache();
+	callback();
+    }
+}
+
 // hold a catch of data that has been already returned
 
 Array.prototype.remove = function(from, to) {
@@ -262,11 +297,16 @@ function update_cache () {
     cache.sort(function (a,b) {
 	return a.location.longitude - b.location.longitude;
     });
+    var oldest = new Date(new Date() - 1000 * 60 * 60 * 24 * 14); // 14 days
     for(var i=1; i < cache.length; i++) {
-	if(!cache[i] || !cache[i].id) {
+	if(!cache[i] || !cache[i].id || !cache[i].created_time) {
 	    console.log('~~cache: ', cache[i]);
 	    cache.remove(i--);
-	}else if(cache[i-1].id == cache[i].id) {
+	}
+	//else if(new Date(cache[i].created_time * 1000) < oldest){
+	//cache.remove(i--);
+	//}
+	else if(cache[i-1].id == cache[i].id) {
 	    cache.remove(i--);
 	}
     }
@@ -335,6 +375,9 @@ function search_cache (lat, lon, dist_km) {
 	d++;
 	if(!run || ret.length > 200) break;
     }
+    ret.sort(function (a,b) {
+	return b.likes.count - a.likes.count;
+    });
     console.log("Returing data length: ", ret.length);
     return ret;
 }
@@ -379,7 +422,7 @@ app.get('/data', function(req, res) {
 	res.end("------ BAD REQUEST -------");
 	return;
     }
-    var ret = search_cache(lat, lon, dist);
+    /*var ret = search_cache(lat, lon, dist);
     var count = 100 - ret.length;
     if(count < 10) count = 10;
     async([
@@ -397,6 +440,18 @@ app.get('/data', function(req, res) {
 	    cache = cache.concat(this[0]);//.concat(this[1]);
 	    update_cache();
 	    save_cache();
+	    res.end(JSON.stringify(ret));
+	}
+    ]);*/
+    async([
+	[
+	    function () {
+		// instaGram
+		getArea(lat, lon, dist, 25, getPics, 100, this);
+	    },
+	],
+	function () {
+	    var ret = search_cache(lat, lon, dist);
 	    res.end(JSON.stringify(ret));
 	}
     ]);
