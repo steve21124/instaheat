@@ -201,6 +201,7 @@ function flickrGet (lat, lon, dist_km, count, callback, timestamp) {
     });
 }
 
+/*
 function fourSquareConvert (ven) {
 
     return {
@@ -242,19 +243,52 @@ function fourSquareGet(lat, lon, dist_km, count, callback, timestamp) {
 	callback([]);
     });
 }
+*/
 
+function copy (obj) {
+    if(typeof obj != "object") return obj;
+    var ret = obj.constructor();
+    for(var a in obj) {
+	ret[a] = copy(obj[a]);
+    }
+    return ret;
+}
 
 function extremeDistance (lat, lon, dist_km, max) {
     var at = {
 	latitude: lat*1,
 	longitude: lon*1
     };
-    var current = {
-	latitude: lat*1,
-	longitude: lon*1
-    };
+    var ret = [at];
+    var current = copy(at);
+    while (true) {
+	current.latitude += .03;
+	if(distance(at, current) < dist_km) {
+	    ret.push(copy(at));
+	}else
+	    break;
+    }
+    current = copy(at);
+    while(true) {
+	current.latitude -= .03;
+	if(distance(at, current) < dist_km) {
+	    ret.push(copy(at));
+	}else break;
+    }
+    var line = copy(ret);
+    current = copy(at);
 
-    return [at]; // return an array of all the places that should be check
+
+    while(true) {
+	current.longitude += .03;
+	if(distance(at, current) < dist_km) {
+
+	}
+	break;
+    }
+
+
+    return ret; // return an array of all the places that should be check
 }
 
 function getArea (lat, lon, dist_km, count, callFun, max, callback) {
