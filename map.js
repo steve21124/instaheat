@@ -194,20 +194,20 @@ function updateImages() {
     });
     $(".picture").remove();
     var target = $("#tabs-2");
-    for(var i = 0; i < imgs.length; i++) $('<a href="' +imgs[i].link+'" class="picture_link"><div class="picture"></div></a>').appendTo(target);
+    var link;
+    for(var i = 0; i < imgs.length; i++)
+    {   //Clean url for the links
+        if (imgs[i].link==null)link = "#tabs-2";else link =imgs[i].link;
+        $('<a href="' +link+'" class="picture_link"><div class="picture"></div></a>').appendTo(target);
+    } 
+
     var i=0;
     $(".picture").each(function () {
        var img= imgs[i++];
-       var name;
-       try{
-        name=img.user.full_name;
-       }catch(err){
-        name=' ';
-       }
-
+   
+       var infos= format_infos(img);
         $(this).css("background-image", "url(" + img.images.standard_resolution.url + ")");
-        
-        $(this).html('<div class="text">'+name+'</div>');
+        $(this).html('<div class="text">'+infos+'</div>');
     });
 }
 
@@ -234,4 +234,14 @@ function search() {
         }
     );
 };
-
+function format_infos(img){
+    var name, informations,likes;
+    try{
+        name=img.user.full_name;
+    }catch(err){
+        name=' ';
+    }
+    likes = img.likes.count;
+    informations='<li>'+name+ '</li><li class="ico like">j &nbsp;</li><li class="like">'+ likes +'</li>';
+    return informations;
+}
