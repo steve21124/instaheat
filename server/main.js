@@ -469,7 +469,7 @@ app.get('/data', function(req, res) {
     //res.end(JSON.stringify(search_cache(37.483,-122.15, 10)));
     var lon = req.param('lon');
     var lat = req.param('lat');
-    var dist = req.param('dist') || 3000;
+    var dist = req.param('dist') || req.param('distance') || 3000;
     dist /= 1000;
     if(!lon || !lat) {
 	res.end("------ BAD REQUEST -------");
