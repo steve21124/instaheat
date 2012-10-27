@@ -32,7 +32,7 @@ function getPicsBefore (lat, lon, dist_km, before,  callback) {
     https.get(url, function (ev) {
 	var buffer = "";
 
-	//console.log("instagram headers: ", ev.headers);
+	console.log("instagram headers: ", ev.headers);
 
 	ev.on('data', function (buf) {
 	    buffer += buf.toString();
@@ -260,7 +260,7 @@ function extremeDistance (lat, lon, dist_km, max) {
 	longitude: lon*1
     };
 
-    var MOVE_CONST = .048; // about 5km
+    var MOVE_CONST = .07;//.048; // about 5km
 
     var ret = [at];
     var outer = copy(at);
@@ -500,6 +500,7 @@ app.get('/data', function(req, res) {
 	[
 	    function () {
 		// instaGram
+		//this(0);
 		getArea(lat, lon, dist, 15/* useless */, getPics, 100, this);
 	    }
 	],
