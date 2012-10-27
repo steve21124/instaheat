@@ -340,19 +340,21 @@ Array.prototype.remove = function(from, to) {
 };
 
 var cache = [];
+var cache_stats = [];
+
 try {
     cache = JSON.parse(fs.readFileSync(heroku ? 'server/cache_data.json' : 'cache_data.json').toString());
+
+
+    try {
+	cache_stats = JSON.parse(fs.readFileSync(heroku ? 'server/cache_data_stat.json' : 'cache_data_stat.json').toString());
+    }catch(e) {
+	console.log("json reading file stats error", e);
+    }
+
 }catch(e) {
     console.log("json reading file error", e);
 }
-
-var cache_stats = [];
-try {
-    cache_stats = JSON.parse(fs.readFileSync(heroku ? 'server/cache_data_stat.json' : 'cache_data_stat.json').toString());
-}catch(e) {
-    console.log("json reading file stats error", e);
-}
-
 
 function save_cache () {
     fs.writeFile(heroku ? 'server/cache_data.json' : 'cache_data.json', JSON.stringify(cache, null, 1));
@@ -395,7 +397,7 @@ function save_cache_stats (lat, lon, dist_km, time) {
 		     });
 }
 
-function check_cache_stats (lat, lon) {
+function check_cache_stats (lat, lon, dist_km) {
     var i = Math.floor(cache_stats.length/2);
     var move = Math.floor(cache_stats.length/4);
 
@@ -418,14 +420,14 @@ function check_cache_stats (lat, lon) {
     while(true) {
 	var run = false;
 	if(i+d < cache_stats.length) {
-	    if(distance(cache_stats[i+d], target) < cache_stats[i+d].dist) {
+	    if(distance(cache_stats[i+d], target) < cache_stats[i+d].dist - dist_km) {
 		if(new Date(cache_stats[i+d].time) > newest)
 		    newest = new Date(cache_stats[i+d]);
 		run = true;
 	    }
 	}
 	if(d != 0 && i-d > 0) {
-	    if(distance(cache_stats[i-d], target) < cache_stats[i-d].dist) {
+	    if(distance(cache_stats[i-d], target) < cache_stats[i-d].dist - dist_km) {
 		if(new Date(cache_stats[i-d].time) > newest)
 		    newest = new Date(cache_stats[i-d]);
 		run = true;
@@ -574,7 +576,7 @@ app.get('/data', function(req, res) {
 	[
 	    function () {
 		// instaGram
-		var latest = check_cache_stats(lat, lon);
+		var latest = check_cache_stats(lat, lon, dist);
 		var oldest =  new Date(new Date() - 1000 * 60 * 60 * 2);
 		if(latest > oldest)
 		    this(0);
