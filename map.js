@@ -3,7 +3,11 @@ var shenZhen = new google.maps.LatLng(22.562025, 114.029846);
 var berkeley = new google.maps.LatLng(37.875527, -122.258639);
 var map, heatmap, pointArray;
 var graphdata=[ ];
-var previous_zoom_level = 14; // var to store previous zoom level, set to the default value
+
+var data_within_map = [];
+
+// var to store previous zoom level, set to the default value
+var previous_zoom_level = 14; 
 //var testPointsData = toMapPts([{location: {longitude: 22.489065, latitude: 113.912812}}, {location: {longitude: 22.485591, latitude: 113.917026}}]); // my home ;)
 
 // already loaded points in google maps
@@ -75,7 +79,11 @@ function initialize() {
         if (nowTime - lastTime > MIN_INTERVAL_MLSEC) {
 
             newCenter = {coords: {latitude: map.getCenter().lat(), longitude: map.getCenter().lng()}};
+
+
+            updateWithinMaps();            
             channelLoc(newCenter,false, MapSize(map).height);
+
 
         }
 
@@ -92,11 +100,13 @@ function initialize() {
 
             current_zoom = map.getZoom();
 
+            updateWithinMaps();
+
             if ((current_zoom - previous_zoom_level) > 0 ) {
                 channelLoc(newCenter,false, MapSize(map).height);
             }
             previous_zoom_level = current_zoom;
-            //console.log("Google Maps zoomed. heigth is", MapSize(map).height,"width", MapSize(map).width);
+            console.log("Google Maps zoomed. heigth is", current_zoom, MapSize(map).height,"width", MapSize(map).width);
         }
 
         lastTime = new Date().getTime();        
@@ -152,7 +162,10 @@ function loadHeatMap(mapPts, lat, lon, toPan) {
 // it to loadHeatMap(), adjusting the map.
 function channelLoc(position, toPan, dist) {
     
-    if (typeof dist == "undefined") dist = 5000;
+    if (typeof dist == "undefined")  { 
+        dist = 6787;
+        console.log("in ChannelLoc, Distance was undefined");
+    }
 
     min_timestamp = (new Date()).getTime() / 1000 - 24*3600; // data from last 24 hours
     console.log("in channelLoc");
@@ -162,10 +175,14 @@ function channelLoc(position, toPan, dist) {
         dataType: "json",
         success: function (d) {
             console.log("Data retrieved: ", d.length);
-            computeHist(d);
+
+            data_within_map = d;
 
             loadHeatMap(toMapPts(d), position.coords.latitude,
                         position.coords.longitude, toPan);
+            
+            computeHist(d);
+            
             processImages(d);
         },
         error: function () {
@@ -219,6 +236,8 @@ function computeHist(data){
     var i=0;
     graphdata = [];
 
+    data = data_within_map;
+
     // nullify the array
     while (i<nb_points) {array[i] = 0;i++;}
 
@@ -240,15 +259,22 @@ function computeHist(data){
     plotgraph(graphdata);
 }
 
-function updateImages() {
-    // first find images that are in the bounds
+function updateWithinMaps () {
+
     var bounds = map.getBounds();
-    var imgs = [];
+    data_within_map = []
     for(var i = 0; i < all_points.length; i++) {
-	if(bounds.contains(all_points[i][0])) {
-	    imgs.push(all_points[i][1]);
-	}
+        if(bounds.contains(all_points[i][0])) {
+            data_within_map.push(all_points[i][1]);
+        }
     }
+}
+
+function updateImages() {
+    
+    // first find images that are in the bounds
+    imgs = data_within_map;
+
     imgs.sort(function (a,b) {
 	return b.likes.count - a.likes.count;
     });
