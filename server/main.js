@@ -18,7 +18,7 @@ function getPicsBefore (lat, lon, dist_km, before,  callback) {
     var url = "https://api.instagram.com/v1/media/search?lat="+lat+"&lng="+lon+"&distance="+(dist_km*1000);
     if(before) url += "&max_timestamp="+before;
     url += "&access_token="+instaToken; // +"&callback=?";
-    console.log(url);
+    //console.log(url);
 
     // the 0 image is the newest image
     /*$.ajax({
@@ -32,7 +32,7 @@ function getPicsBefore (lat, lon, dist_km, before,  callback) {
     https.get(url, function (ev) {
 	var buffer = "";
 
-	console.log("instagram headers: ", ev.headers);
+	//console.log("instagram headers: ", ev.headers);
 
 	ev.on('data', function (buf) {
 	    buffer += buf.toString();
@@ -259,35 +259,53 @@ function extremeDistance (lat, lon, dist_km, max) {
 	latitude: lat*1,
 	longitude: lon*1
     };
+
+    var MOVE_CONST = .048; // about 5km
+
     var ret = [at];
-    var current = copy(at);
-    while (true) {
-	current.latitude += .03;
-	if(distance(at, current) < dist_km) {
-	    ret.push(copy(at));
-	}else
-	    break;
-    }
-    current = copy(at);
-    while(true) {
-	current.latitude -= .03;
-	if(distance(at, current) < dist_km) {
-	    ret.push(copy(at));
-	}else break;
-    }
-    var line = copy(ret);
-    current = copy(at);
-
+    var outer = copy(at);
 
     while(true) {
-	current.longitude += .03;
-	if(distance(at, current) < dist_km) {
-
+	outer.latitude += MOVE_CONST;
+	if(distance(at, outer) >= dist_km) break;
+	var inner = copy(outer);
+	while(true) {
+	    if(distance(at, inner) < dist_km) {
+		ret.push(inner)
+	    }else break;
+	    inner.longitude += MOVE_CONST;
 	}
-	break;
+	inner = copy(outer);
+	while(true) {
+	    inner.longitude -= MOVE_CONST;
+	    if(distance(at, inner) < dist_km) {
+		ret.push(inner)
+	    }else break;
+	}
+    }
+
+    outer = copy(at);
+    while(true) {
+	outer.latitude -= MOVE_CONST;
+	if(distance(at, outer) >= dist_km) break;
+	var inner = copy(outer);
+	while(true) {
+	    if(distance(at, inner) < dist_km) {
+		ret.push(inner)
+	    }else break;
+	    inner.longitude += MOVE_CONST;
+	}
+	inner = copy(outer);
+	while(true) {
+	    inner.longitude -= MOVE_CONST;
+	    if(distance(at, inner) < dist_km) {
+		ret.push(inner)
+	    }else break;
+	}
     }
 
 
+    //console.log("extreme: ", ret, "\n\nDistance:", dist_km);
     return ret; // return an array of all the places that should be check
 }
 
@@ -296,7 +314,7 @@ function getArea (lat, lon, dist_km, count, callFun, max, callback) {
     var count=1;
     for(var i=0;i<check.length;i++) {
 	count++;
-	callFun(check[i].latitude, check[i].longitude, max, 100, function (data) {
+	callFun(check[i].latitude, check[i].longitude, max/* useless */, count, function (data) {
 	    cache = cache.concat(data);
 	    if(!--count) {
 		update_cache();
@@ -481,8 +499,8 @@ app.get('/data', function(req, res) {
 	[
 	    function () {
 		// instaGram
-		getArea(lat, lon, dist, 25, getPics, 100, this);
-	    },
+		getArea(lat, lon, dist, 15/* useless */, getPics, 100, this);
+	    }
 	],
 	function () {
 	    var ret = search_cache(lat, lon, dist);
