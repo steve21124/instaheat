@@ -66,6 +66,7 @@ function initialize() {
 
     var nowTime, lastTime = 0, newCenter;
     var MIN_INTERVAL_MLSEC = 1800;
+    var current_zoom = 13;
 
     google.maps.event.addListener(map, 'dragend', function() {
         nowTime = new Date().getTime();
@@ -82,12 +83,44 @@ function initialize() {
         //console.log("zoom_changed fired: new lat lon are ", map.getCenter().lat(), map.getCenter().lng());
         if (nowTime - lastTime > MIN_INTERVAL_MLSEC) {
             newCenter = {coords: {latitude: map.getCenter().lat(), longitude: map.getCenter().lng()}};
-            channelLoc(newCenter)
+            channelLoc(newCenter,false, MapSize(map).height);
+            //console.log("Google Maps zoomed. heigth is", MapSize(map).height,"width", MapSize(map).width);
         }
         lastTime = new Date().getTime();
+        //current_zoom = map.getZoom();
+
     });
 
     getLocation();
+}
+
+
+// Calculate the width and height of a google map
+function MapSize (mapobj) {
+
+    google.maps.LatLng.prototype.distanceFrom = function(latlng) {
+      var lat = [this.lat(), latlng.lat()]
+      var lng = [this.lng(), latlng.lng()]
+      var R = 6378137;
+      var dLat = (lat[1]-lat[0]) * Math.PI / 180;
+      var dLng = (lng[1]-lng[0]) * Math.PI / 180;
+      var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(lat[0] * Math.PI / 180 ) * Math.cos(lat[1] * Math.PI / 180 ) *
+      Math.sin(dLng/2) * Math.sin(dLng/2);
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      var d = R * c;
+      return Math.round(d);
+    }
+
+    var bounds = mapobj.getBounds(), 
+    cor1 = bounds.getNorthEast(), 
+    cor2 = bounds.getSouthWest(), 
+    cor3 = new google.maps.LatLng(cor2.lat(), cor1.lng()), 
+    cor4 = new google.maps.LatLng(cor1.lat(), cor2.lng()), 
+    width = cor1.distanceFrom(cor3), 
+    height = cor1.distanceFrom(cor4);
+
+    return {width: width, height: height};
 }
 
 // Shifts center and loads the heat map.
@@ -105,8 +138,10 @@ function loadHeatMap(mapPts, lat, lon, toPan) {
 
 // Makes an ajax request to browser to retrieve user's location, and channels
 // it to loadHeatMap(), adjusting the map.
-function channelLoc(position, toPan) {
-    dist = 5000;
+function channelLoc(position, toPan, dist) {
+    
+    if (typeof dist == "undefined") dist = 5000;
+
     min_timestamp = (new Date()).getTime() / 1000 - 24*3600; // data from last 24 hours
     console.log("in channelLoc");
     $.ajax({
