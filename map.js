@@ -106,10 +106,12 @@ function loadHeatMap(mapPts, lat, lon, toPan) {
 // Makes an ajax request to browser to retrieve user's location, and channels
 // it to loadHeatMap(), adjusting the map.
 function channelLoc(position, toPan) {
+    dist = 5000;
+    min_timestamp = (new Date()).getTime() / 1000 - 24*3600; // data from last 24 hours
     console.log("in channelLoc");
     $.ajax({
         url: "/data?lon=" + position.coords.longitude + "&lat=" +
-            position.coords.latitude,//"&dist="dist
+            position.coords.latitude + "&distance="+ dist + "&min_timestamp=" + min_timestamp,
         dataType: "json",
         success: function (d) {
             console.log("Data retrieved: ", d.length);
@@ -124,12 +126,13 @@ function channelLoc(position, toPan) {
         }
     });
 }
-
+/*
 function channelLocFrsq(position) {
-    console.log("in channelLoc");
+
+    console.log("in channelLoc, distance reuested = ", dist);
     $.ajax({
         url: "/data?lon=" + position.coords.longitude + "&lat=" +
-            position.coords.latitude,//"&dist="dist
+            position.coords.latitude + "&distance="dist,
         dataType: "json",
         success: function (d) {
             computeHist(d);
@@ -142,7 +145,7 @@ function channelLocFrsq(position) {
         }
     });
 }
-
+*/
 function processImages(data) {
     return;
     var i = 0;
@@ -157,6 +160,8 @@ function processImages(data) {
 
     });
 }
+
+// TODO - Get a hand of different timezones
 function computeHist(data){
     console.log("in computeHist()");
     var nb_points=25, time= 3600*24;
@@ -181,7 +186,7 @@ function computeHist(data){
     // Push the array together with the timestamp to the graph data
     for (var i = nb_points - 1; i > 0 ; i--) {
         var timestamp =  (nb_points - i + current_time.getHours()) * 3600;
-        //console.log(timestamp);
+        console.log(timestamp, array[i]);
         graphdata.push({x: timestamp, y: array[i] } ); // we output x axis * 60 for plotttng purposes
     };
     //console.log("Graphdata =:", graphdata);
