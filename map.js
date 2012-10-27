@@ -3,6 +3,7 @@ var shenZhen = new google.maps.LatLng(22.562025, 114.029846);
 var berkeley = new google.maps.LatLng(37.875527, -122.258639);
 var map, heatmap, pointArray;
 var graphdata=[ ];
+var previous_zoom_level = 14; // var to store previous zoom level, set to the default value
 //var testPointsData = toMapPts([{location: {longitude: 22.489065, latitude: 113.912812}}, {location: {longitude: 22.485591, latitude: 113.917026}}]); // my home ;)
 
 // already loaded points in google maps
@@ -57,7 +58,7 @@ function getLocation() {
 function initialize() {
     var center = berkeley;
     var mapOptions = {
-        zoom: 13,
+        zoom: 14,
         center: center,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -65,29 +66,40 @@ function initialize() {
     map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
     var nowTime, lastTime = 0, newCenter;
-    var MIN_INTERVAL_MLSEC = 1800;
-    var current_zoom = 13;
+    var MIN_INTERVAL_MLSEC = 1800; // Min Time between update requests 
+    var current_zoom = 14;
 
     google.maps.event.addListener(map, 'dragend', function() {
         nowTime = new Date().getTime();
         //console.log("dragend fired: new lat lon are ", map.getCenter().lat(), map.getCenter().lng());
         if (nowTime - lastTime > MIN_INTERVAL_MLSEC) {
+
             newCenter = {coords: {latitude: map.getCenter().lat(), longitude: map.getCenter().lng()}};
-            channelLoc(newCenter)
+            channelLoc(newCenter,false, MapSize(map).height);
+
         }
+
         lastTime = new Date().getTime();
+
     });
 
     google.maps.event.addListener(map, 'zoom_changed', function() {
         nowTime = new Date().getTime();
         //console.log("zoom_changed fired: new lat lon are ", map.getCenter().lat(), map.getCenter().lng());
         if (nowTime - lastTime > MIN_INTERVAL_MLSEC) {
+
             newCenter = {coords: {latitude: map.getCenter().lat(), longitude: map.getCenter().lng()}};
-            channelLoc(newCenter,false, MapSize(map).height);
+
+            current_zoom = map.getZoom();
+
+            if ((current_zoom - previous_zoom_level) > 0 ) {
+                channelLoc(newCenter,false, MapSize(map).height);
+            }
+            previous_zoom_level = current_zoom;
             //console.log("Google Maps zoomed. heigth is", MapSize(map).height,"width", MapSize(map).width);
         }
-        lastTime = new Date().getTime();
-        //current_zoom = map.getZoom();
+
+        lastTime = new Date().getTime();        
 
     });
 
