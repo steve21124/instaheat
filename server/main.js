@@ -328,6 +328,7 @@ function getArea (lat, lon, dist_km, count, callFun, max, callback) {
 	save_cache();
 	callback();
     }
+    save_cache_stats(lat, lon, dist_km, new Date());
 }
 
 // hold a catch of data that has been already returned
@@ -345,9 +346,25 @@ try {
     console.log("json reading file error", e);
 }
 
+var cache_stats = [];
+try {
+    cache_stats = JSON.parse(fs.readFileSync(heroku ? 'server/cache_data_stat.json' : 'cache_data_stat.json').toString());
+}catch(e) {
+    console.log("json reading file stats error", e);
+}
+
+
+function save_cache () {
+    fs.writeFile(heroku ? 'server/cache_data.json' : 'cache_data.json', JSON.stringify(cache, null, 1));
+    fs.writeFile(heroku ? 'server/cache_data_stat.json' : 'cache_data_stat.json', JSON.stringify(cache_stats, null, 1));
+}
+
 function update_cache () {
     cache.sort(function (a,b) {
 	return a.location.longitude - b.location.longitude;
+    });
+    cache_stats.sort(function (a,b) {
+	return a.longitude - b.longitude;
     });
     var oldest = new Date(new Date() - 1000 * 60 * 60 * 24 * 14); // 14 days
     for(var i=1; i < cache.length; i++) {
@@ -362,7 +379,64 @@ function update_cache () {
 	    cache.remove(i--);
 	}
     }
+
+    var oldest_stat = new Date(new Date() - 1000 * 60 * 60 * 4); // 2 hours
+    for(var i=0; i< cache_stats.length; i++) {
+	if(new Date(cache_stats[i].time) < oldest_stat)
+	    cache_stats.remove(i--);
+    }
 }
+
+function save_cache_stats (lat, lon, dist_km, time) {
+    cache_stats.push({longitude: lon*1,
+		      latitude: lat*1,
+		      dist: dist_km,
+		      time: new Date(time)
+		     });
+}
+
+function check_cache_stats (lat, lon) {
+    var i = Math.floor(cache_stats.length/2);
+    var move = Math.floor(cache_stats.length/4);
+
+    var target = {
+	latitude: lat*1,
+	longitude: lon*1
+    };
+    while(move > 3) {
+	if(i < 0) i = cache_stat.length - 1;
+	if(i >= cache_stat.length) i = 0;
+	var d = cache_stat[i].longitude - target.longitude;
+	if(d < 0)
+	    d -= move;
+	else
+	    d += move;
+	move = Math.floor(move/2);
+    }
+    var newest = new Date(0);
+    var d = 0;
+    while(true) {
+	var run = false;
+	if(i+d < cache_stats.length) {
+	    if(distance(cache_stats[i+d], target) < cache_stats[i+d].dist) {
+		if(new Date(cache_stats[i+d].time) > newest)
+		    newest = new Date(cache_stats[i+d]);
+		run = true;
+	    }
+	}
+	if(d != 0 && i-d > 0) {
+	    if(distance(cache_stats[i-d], target) < cache_stats[i-d].dist) {
+		if(new Date(cache_stats[i-d].time) > newest)
+		    newest = new Date(cache_stats[i-d]);
+		run = true;
+	    }
+	}
+	d++;
+	if(!run) break;
+    }
+    return newest;
+}
+
 
 if (typeof(Number.prototype.toRad) === "undefined") {
     Number.prototype.toRad = function() {
@@ -385,9 +459,6 @@ function distance (a,b) {
     return d;
 }
 
-function save_cache () {
-    fs.writeFile('cache_data.json', JSON.stringify(cache, null, 1));
-}
 
 function search_cache (lat, lon, dist_km) {
     console.log(cache.length);
@@ -433,6 +504,9 @@ function search_cache (lat, lon, dist_km) {
     console.log("Returing data length: ", ret.length);
     return ret;
 }
+
+
+
 
 
 var app = express();
@@ -500,8 +574,12 @@ app.get('/data', function(req, res) {
 	[
 	    function () {
 		// instaGram
-		//this(0);
-		getArea(lat, lon, dist, 15/* useless */, getPics, 100, this);
+		var latest = check_cache_stats(lat, lon);
+		var oldest =  new Date(new Date() - 1000 * 60 * 60 * 2);
+		if(latest > oldest)
+		    this(0);
+		else
+		    getArea(lat, lon, dist, 15/* useless */, getPics, 100, this);
 	    }
 	],
 	function () {
