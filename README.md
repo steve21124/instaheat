@@ -1,10 +1,10 @@
 Instaheat
 =========
 
-Instaheat maps the nearby, interesting hot pictures on Instagram and Flickr,
-into a sexy heat map. Go to the red zones, have fun, and be awesome.
+Instaheat puts the nearby taken pictures from Instagram,
+onto a google-maps-based heat map. The hotter the location - the more pictures are taken there.
 
-FB Battle of the Bay Hackathon hack, proudly presented by Cal Bears.
+Started at Facebook Battle of the Bay Hackathon: Oct 13, 2012.
 
 ## Contributors
 - Arnaud Bénard (<https://github.com/arnaudbenard>)
